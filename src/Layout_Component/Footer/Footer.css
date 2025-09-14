@@ -1,0 +1,21 @@
+footer p {
+  margin-bottom: 0.4rem;
+  font-size: 1.0rem;
+}
+
+footer h6 {
+  font-size: 1.4rem !important;
+}
+
+.footer-logo{
+      width: 180px;
+}
+footer {
+  background: linear-gradient(
+    135deg,
+    rgba(78, 115, 248, 0.15),
+    rgba(243, 106, 212, 0.15),
+    rgba(247, 180, 156, 0.15)
+  );
+}
+

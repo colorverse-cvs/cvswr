@@ -1,0 +1,71 @@
+.project-start-section {
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.project-start-container {
+  height: 280px;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #4e73f8, #f36ad4, #f7b49c);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  background-size: cover;
+  background-position: center;
+}
+
+
+@media (min-width: 768px) {
+  .project-start-container {
+    background-image: url('/src/assets/ProjectStart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.project-start-text {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    line-height: 45px;
+}
+
+.project-start-btn {
+  min-width: 140px;
+  font-weight: 600;
+  color: #4e73f8;
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.project-start-btn:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 576px) {
+  .project-start-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .project-start-text {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-start-btn {
+    width: 100%;
+  }
+}

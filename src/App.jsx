@@ -1,24 +1,16 @@
 import { useState } from 'react';
 import './App.css';
-
-import Card from '../src/components/Card';
+import Header from "./Layout_Component/Header/Header";
+import Footer from "./Layout_Component/Footer/Footer";
+import Home from './Pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const handleButtonClick = () => {
-    setCount(count + 1);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <Card
-        title="Counter Card"
-        body={`You have clicked the button ${count} times.`}
-        buttonText="Increment"
-        onButtonClick={handleButtonClick}
-      />
-    </div>
+   <>
+      <Header/>
+      <Home/>
+      <Footer/>
+   </>
   );
 }
 

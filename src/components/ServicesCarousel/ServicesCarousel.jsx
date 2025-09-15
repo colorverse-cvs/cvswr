@@ -78,20 +78,25 @@ const stopAutoplay = () => {
 
   return (
     <div className="services-carousel-container">
- <Swiper
+<Swiper
   ref={swiperRef}
   modules={[Pagination, Autoplay]}
-  spaceBetween={40}
-  slidesPerView={3}
+  spaceBetween={20}
   loop={true}
-  speed={6000} 
+  speed={6000}
   autoplay={{
-    delay: 0, 
+    delay: 0,
     disableOnInteraction: false,
   }}
   pagination={{ clickable: true }}
-  
+  breakpoints={{
+    320: { slidesPerView: 1 },   
+    576: { slidesPerView: 1.3 },
+    768: { slidesPerView: 2 },  
+    1024: { slidesPerView: 3 }, 
+  }}
 >
+
 
         {services.map((service, index) => (
           <SwiperSlide key={index}>

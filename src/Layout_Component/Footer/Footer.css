@@ -1,15 +1,3 @@
-footer p {
-  margin-bottom: 0.4rem;
-  font-size: 1.0rem;
-}
-
-footer h6 {
-  font-size: 1.4rem !important;
-}
-
-.footer-logo{
-      width: 180px;
-}
 footer {
   background: linear-gradient(
     135deg,
@@ -19,3 +7,32 @@ footer {
   );
 }
 
+footer p {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+footer h6 {
+  font-size: 1.2rem;
+}
+
+.footer-logo {
+  width: 160px;
+  max-width: 100%;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  transition: background 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #007bff;
+  color: white;
+}

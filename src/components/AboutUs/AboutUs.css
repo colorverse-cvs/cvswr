@@ -1,28 +1,22 @@
 .about-image {
   transition: transform 0.3s ease;
+  max-width: 90%; 
 }
 
 .about-image:hover {
   transform: scale(1.05);
 }
 
-.letter-spacing {
-  letter-spacing: 0.2em;
-  color: #0d6efd; /* Bootstrap primary color */
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
 .about-us p {
   line-height: 1.6;
   font-size: 1rem;
-  color: #6c757d; /* Bootstrap text-muted color */
+  color: #6c757d;
 }
 
 .about-us h2 {
   font-size: 2.25rem;
   line-height: 1.2;
-  color: #212529; /* Bootstrap body color */
+  color: #212529;
   margin-bottom: 1rem;
 }
 
@@ -40,7 +34,6 @@
   box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.4);
 }
 
-/* Fade-in animation on section load */
 .about-us {
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
@@ -54,17 +47,32 @@
   }
 }
 
-/* Responsive tweaks */
+/* ✅ Responsive Improvements */
 @media (max-width: 767.98px) {
   .about-us h2 {
     font-size: 1.75rem;
+    text-align: center; /* center title on mobile */
   }
-  
+
   .about-us p {
     font-size: 0.95rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  .about-us button.btn-primary {
+    display: block;
+    margin: 0 auto;
   }
 
   .letter-spacing {
     font-size: 0.85rem;
+  }
+
+  .about-image {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
   }
 }

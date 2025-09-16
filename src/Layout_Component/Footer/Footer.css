@@ -5,6 +5,12 @@ footer {
     rgba(243, 106, 212, 0.15),
     rgba(247, 180, 156, 0.15)
   );
+  text-align: center;
+}
+@media (min-width: 768px) {
+  footer {
+    text-align: start !important;
+  }
 }
 
 footer p {

@@ -4,6 +4,7 @@ import ServicesCarousel from '../components/ServicesCarousel/ServicesCarousel';
 import AboutUS from '../components/AboutUs/AboutUs'
 import ProjectStart from '../components/ProjectStart/ProjectStart'
 import Testimonial from '../components/Testimonial/Testimonial'
+import Showreel from '../components/Showreel/Showreel'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <HeroSection/>
       <ServicesCarousel/>
       <AboutUS/>
+      <Showreel/>
       <Testimonial/>
       <ProjectStart/>
     </>

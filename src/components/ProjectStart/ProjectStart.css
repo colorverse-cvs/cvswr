@@ -58,6 +58,7 @@
     text-align: center;
     height: auto;
     padding: 2rem 1rem;
+    width: fit-content;
   }
 
   .project-start-text {

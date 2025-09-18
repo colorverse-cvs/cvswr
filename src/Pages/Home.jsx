@@ -5,6 +5,8 @@ import AboutUS from '../components/AboutUs/AboutUs'
 import ProjectStart from '../components/ProjectStart/ProjectStart'
 import Testimonial from '../components/Testimonial/Testimonial'
 import Showreel from '../components/Showreel/Showreel'
+import VideoShowcase from '../components/VideoShowcase/VideoShowcase'
+
 
 function Home() {
   return (
@@ -13,6 +15,7 @@ function Home() {
       <ServicesCarousel/>
       <AboutUS/>
       <Showreel/>
+      <VideoShowcase/>
       <Testimonial/>
       <ProjectStart/>
     </>

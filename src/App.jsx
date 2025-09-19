@@ -1,17 +1,21 @@
-import { useState } from 'react';
-import './App.css';
-import Header from "./Layout_Component/Header/Header";
-import Footer from "./Layout_Component/Footer/Footer";
-import Home from './Pages/Home';
+// App.jsx
+import React from "react";
+import Layout from "./Layout.jsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Showreels from "./Pages/Showreels.jsx";
 
-function App() {
+const App = () => {
   return (
-   <>
-      <Header/>
-      <Home/>
-      <Footer/>
-   </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="Showreels" element={<Showreels />}/>
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

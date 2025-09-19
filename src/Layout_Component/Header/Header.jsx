@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/symbol.PNG";
 import "../Header/Header.css";
 
@@ -8,10 +8,10 @@ function Header() {
     <header className="header">
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div className="container">
-
-          <Link className="navbar-brand d-flex align-items-center" to="/">
+          <NavLink className="navbar-brand d-flex align-items-center" to="/">
             <img src={logo} alt="Logo" className="header-logo" />
-          </Link>
+          </NavLink>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -23,27 +23,71 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/">Home</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/about">About</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/about"
+                >
+                  About
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/showreels">Showreels</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/showreels"
+                >
+                  Showreels
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/clients">Clients</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/clients"
+                >
+                  Clients
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/digital">Digital</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/digital"
+                >
+                  Digital
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-uppercase" to="/contact">Contact</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link text-uppercase ${isActive ? "active" : ""}`
+                  }
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
               </li>
             </ul>
+
             <div className="d-flex gap-2">
               <button className="btn btn-outline-dark btn-sm">Quick Enquiry</button>
               <button className="btn btn-outline-dark btn-sm">Presentation</button>

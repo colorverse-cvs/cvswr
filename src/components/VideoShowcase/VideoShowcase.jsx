@@ -40,8 +40,8 @@ const rightVideos = {
 
 const VideoShowcase = () => {
   return (
-    <div className="video-showcase container py-5">
-      <div className="row g-4 align-items-start">
+    <div className="video-showcase container">
+      <div className="row g-4 align-items-start mt-5">
         {/* Left Big Video Carousel */}
         <div className="col-lg-7">
 <Swiper

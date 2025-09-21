@@ -2,6 +2,7 @@
 import React from "react";
 import { reels } from "../../components/Showreel/Showreel";
 import "../../components/Showreel/Showreel.css";
+import ProjectStart from "../../components/ProjectStart/ProjectStart"
 import { FaHeart, FaRegComment, FaShare, FaHome, FaSearch, FaPlusSquare, FaVideo, FaUser } from "react-icons/fa";
 
 const Showreels = () => {
@@ -55,7 +56,13 @@ const Showreels = () => {
           </div>
         ))}
       </div>
+      <ProjectStart
+      title={<>We Design, Build <br /> and Elevate</>}
+      buttonLabel="Contact Us"
+    />
+      
     </div>
+    
   );
 };
 

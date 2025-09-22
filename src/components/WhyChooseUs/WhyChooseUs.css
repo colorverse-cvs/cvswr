@@ -1,0 +1,146 @@
+/* === Existing desktop styles remain unchanged === */
+.why-choose-us {
+  color: #fff;
+}
+
+.left-section {
+  background-image: url('https://www.whitecode.co.in/web-assets/img/why-us-lft.png');
+  background-size: cover;
+  background-position: center;
+  height: 545px;
+  width: 50%;
+  border-radius: 0px 350px 350px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  padding: 105px;
+}
+
+.left-content {
+  max-width: 500px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.arrow-icon {
+  font-size: 2rem;
+  color: #001f7f;
+  margin-right: 10px;
+}
+
+.right-section {
+  background-color: white;
+  color: #000;
+  position: relative;
+  min-height: 545px;
+  padding: 40px;
+}
+
+.icon-circle {
+  background: linear-gradient(90deg, #7f00ff, #e100ff94);
+  color: white;
+  width: 103px;
+  height: 103px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.icon-circle.blue {
+  background: linear-gradient(90deg, #7f00ff, #e100ff94);
+}
+
+.gradient-line {
+  width: 150px;
+  height: 2px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, #060693 0%, #FFF 100%);
+}
+
+.icon-item-1,
+.icon-item-2,
+.icon-item-3 {
+  position: absolute;
+}
+
+.icon-item-1 {
+  top: 50px;
+  left: -107px;
+}
+
+.icon-item-2 {
+ top: 214px;
+  left: -54px;
+}
+
+.icon-item-3 {
+    left: -107px;
+    bottom: 43px;
+}
+.FeatureItem-text{
+  font-size: 21px;
+}
+/* === Responsive styles only for mobile/tablets === */
+@media (max-width: 767.98px) {
+  .why-choose-us {
+    padding: 2rem 1rem;
+  }
+
+  .left-section {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 40px 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .left-content {
+    max-width: 100%;
+  }
+
+  .right-section {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  /* Reset icon positioning */
+  .icon-item-1,
+  .icon-item-2,
+  .icon-item-3 {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    margin-bottom: 2rem;
+  }
+
+  .responsive-icon-wrap {
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .icon-circle {
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .gradient-line {
+    width: 60%;
+    margin: 0.5rem auto;
+  }
+
+  .responsive-icon-wrap p {
+    margin: 0;
+  }
+}

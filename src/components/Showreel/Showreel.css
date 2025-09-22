@@ -203,6 +203,8 @@
   scroll-behavior: smooth;    /* smooth scrolling */
 }
 
+
+
 /* ✅ Responsive Fixes */
 @media (max-width: 768px) {
   .phone-frame {
@@ -219,3 +221,4 @@
     margin-left: 0;
   }
 }
+

@@ -1,0 +1,106 @@
+.services-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 350px;
+  background: linear-gradient(135deg, #f3f0ff, #fff0ff);
+  color: #110069;
+  padding: 40px 20px;
+  border-radius: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.services-page {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.services-hero {
+  background: linear-gradient(90deg, #6f00ff, #c700ff);
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.services-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.services-hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.services-list {
+  margin: 0 auto;
+}
+
+.service-item {
+  background: linear-gradient(135deg, #f3f0ff, #fff0ff);
+  color: #110069;
+    padding: 40px 20px;
+
+  border-radius: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: -1px 3px 9px 0px rgba(17, 0, 105, 0.2);
+}
+
+.service-item .icon {
+  font-size: 3rem;
+  color: #6f00ff;
+  margin-bottom: 20px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.service-item:hover .icon {
+  transform: scale(1.2);
+  color: #c700ff;
+}
+
+.service-item h3 {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-item p {
+  flex-grow: 1; 
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #333;
+}
+.btn-enquiry {
+  display: inline-block;     
+  padding: 10px 35px;        
+  font-size: 1rem;            
+  background-color: #6f00ff; 
+  color: #fff;               
+  border: none;              
+  border-radius: 10px;    
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  align-self: center;       
+}
+
+.btn-enquiry:hover {
+  background-color: #c700ff; 
+  transform: scale(1.05);  
+}

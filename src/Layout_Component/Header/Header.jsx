@@ -73,7 +73,7 @@ function Header() {
                   }
                   to="/digital"
                 >
-                  Digital
+                  Services
                 </NavLink>
               </li>
               <li className="nav-item">

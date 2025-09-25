@@ -14,6 +14,7 @@ export const reels = [
   { id: 4, videoUrl: "https://video.wixstatic.com/video/61fec8_4adcfc24a72f4f2c9f873fb834a051c1/1080p/mp4/file.mp4", username: "foodie", caption: "Delicious dinner tonight! 🍲", music: "Chill Vibes - LoFi" },
   { id: 5, videoUrl: "https://video.wixstatic.com/video/61fec8_4adcfc24a72f4f2c9f873fb834a051c1/1080p/mp4/file.mp4", username: "gamer", caption: "Victory Royale! 🎮", music: "Epic Soundtrack" },
   { id: 6, videoUrl: "https://video.wixstatic.com/video/61fec8_50b1558380cc4515801d872b61df8259/1080p/mp4/file.mp4", username: "traveler", caption: "On the beach 🏖️", music: "Ocean Waves" },
+  { id: 7, videoUrl: "https://video.wixstatic.com/video/61fec8_89d8b62469144162baa84953827d2e48/1080p/mp4/file.mp4", username: "nature_lover", caption: "Nature is so peaceful 🍃", music: "Calm Breeze - LoFi Beats" },
 ];
 
 const Showreel = () => {

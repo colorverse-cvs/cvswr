@@ -56,7 +56,7 @@ const Breadcrumb = () => {
     <div className="breadcrumb-content container">
       {/* Title and subtitle centered */}
       <div className="breadcrumb-header">
-        <h1 className="breadcrumb-title">{pageTitle}</h1>
+        <h2 className="breadcrumb-title">{pageTitle}</h2>
         {subtitle && <p className="breadcrumb-subtitle">{subtitle}</p>}
       </div>
 

@@ -61,9 +61,9 @@ function Header() {
                   className={({ isActive }) =>
                     `nav-link text-uppercase ${isActive ? "active" : ""}`
                   }
-                  to="/clients"
+                  to="/Courses"
                 >
-                  Clients
+                  Courses
                 </NavLink>
               </li>
               <li className="nav-item">

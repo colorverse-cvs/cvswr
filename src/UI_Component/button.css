@@ -1,0 +1,24 @@
+
+.btn-enquiry {
+  padding: 12px 22px !important;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-top: 25px;
+}
+
+.btn-enquiry {
+  background: linear-gradient(135deg, #6f00ff, #c700ff);
+  color: white;
+}
+
+.btn-enquiry:hover {
+  background: linear-gradient(135deg, #8a00ff, #e600ff);
+  transform: translateY(-2px);
+}
+
+

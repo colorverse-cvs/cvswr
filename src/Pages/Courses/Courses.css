@@ -1,0 +1,105 @@
+/* Intro Section */
+.intro-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f5f7fa, #e4e5f1);
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.stylish-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.stylish-intro .highlight {
+    background: linear-gradient(90deg, #7f00ff, #e100ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 6px;
+}
+
+/* subtle floating animation */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.courses-page .brand {
+    color: #6c63ff;
+    font-weight: 600;
+}
+
+.courses-page .highlight {
+    font-weight: 600;
+    color: #4b6ccd;
+}
+
+/* Subtle Faint Gradients */
+.intro-section {
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #f5f7fa, #e4e5f1);
+    color: #333;
+}
+
+.course-section {
+    padding: 80px 20px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-1 {
+    background: linear-gradient(135deg, #fff5f7, #f0f0ff);
+
+    color: #333;
+}
+
+.gradient-2 {
+    background: linear-gradient(287deg, #fff5f7, #f0f0ff);
+    color: #333;
+}
+
+
+/* Images */
+.course-illustration {
+    min-height: 380px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.floating-img {
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.floating-img:hover {
+    transform: scale(1.05);
+}
+.enquiry-btn {
+  background: linear-gradient(90deg, #7f00ff, #e100ff);
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.enquiry-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

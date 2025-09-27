@@ -17,8 +17,8 @@ const Breadcrumb = () => {
       subtitle: "Explore our creative work and past projects",
       // backgroundImage: "/assets/hero-showreels.jpg",
     },
-    "/clients": {
-      title: "Our Clients",
+    "/Courses": {
+      title: "Our Courses",
       subtitle: "Trusted by top brands for creative excellence",
       // backgroundImage: "/assets/hero-clients.jpg",
     },

@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  top: -92px;
+    position: relative;
 }
 
 .overlay {
@@ -15,6 +17,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  padding-top: 110px;
 }
 
 .overlay h1 {
@@ -131,6 +134,7 @@ h1, p, input, select, textarea, button {
     flex-direction: column;
     padding: 1rem;
     text-align: center;
+    padding-top: 130px;
   }
 
   .card-2,

@@ -1,108 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/symbol.PNG";
-import "../Header/Header.css";
+import logo from "../../assets/logo.PNG";
+import "./Header.css";
 
 function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="header">
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div className="container">
-          <NavLink className="navbar-brand d-flex align-items-center" to="/">
-            <img src={logo} alt="Logo" className="header-logo" />
-          </NavLink>
+    <header className={`custom-header container ${scrolled ? "scrolled" : ""}`}>
+      <div className="header-bg"></div>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+      <div className="header-left">
+        <img src={logo} alt="Logo" className="header-logo" />
+      </div>
 
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/showreels"
-                >
-                  Showreels
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/Courses"
-                >
-                  Courses
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/digital"
-                >
-                  Services
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-link text-uppercase ${isActive ? "active" : ""}`
-                  }
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
+      {/* Hamburger icon */}
+      <div
+        className="mobile-menu-icon"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <i className="fas fa-bars"></i>
+      </div>
 
-            <div className="d-flex gap-2">
-              <button className="btn btn-outline-dark btn-sm">Quick Enquiry</button>
-              <button className="btn btn-outline-dark btn-sm">Presentation</button>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-dark btn-sm"
-              >
-                Instagram
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Navigation menu */}
+      <nav
+        className={`header-nav ${mobileMenuOpen ? "mobile-open" : ""}`}
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        <NavLink to="/" className="nav-link">Home</NavLink>
+        <NavLink to="/about" className="nav-link">About</NavLink>
+        <NavLink to="/showreels" className="nav-link">Showreels</NavLink>
+        <NavLink to="/courses" className="nav-link">Courses</NavLink>
+        <NavLink to="/digital" className="nav-link">Services</NavLink>
+        <NavLink to="/contact" className="nav-link">Contact</NavLink>
       </nav>
+
+      <div className="header-right">
+        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <i className="fab fa-instagram"></i>
+        </a>
+       <a href="mailto:someone@example.com" target="_blank" rel="noreferrer">
+<i class="fa-regular fa-envelope"></i>
+</a>
+
+        <a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  rel="noreferrer"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+      </div>
     </header>
   );
 }

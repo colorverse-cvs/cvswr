@@ -1,90 +1,156 @@
-.header {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 100;
+/* HEADER DEFAULT STYLES (DESKTOP) */
+.custom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(255 255 255 / 94%);
+  border-radius: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  height: 91px;
+  padding: 0 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  top: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .header-logo {
-  height: 70px;
-  padding: 5px;
-  object-fit: contain;
-}
-
-.navbar-nav .nav-link {
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #000;
-  transition: color 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #007bff;
-}
-.navbar-nav .nav-link {
+  height: 80px;
+  left: -58%;
   position: relative;
 }
 
-.navbar-nav .nav-link.active::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
+.header-nav {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #6a11cb;
+}
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+  background: linear-gradient(135deg, #6a11cb, #b14cff);
+  padding: 1.6rem 4.5rem;
+  clip-path: polygon(39% 0%, 100% 0%, 100% 100%, 0% 101%);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  right: -33px;
+  position: relative;
+}
+
+.header-right a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  right: -21px;
+}
+
+.header-right a:hover {
+  background: white;
+  color: black;
+}
+
+.header-bg {
+  display: flex;
+  gap: 1rem;
+  background: linear-gradient(135deg, #6a11cb, #b14cff);
+  padding: 2.9rem 3.5rem;
+  clip-path: polygon(0% 0%, 100% -34%, -26% 83%, 0% 100%);
+  right: 33px;
+  position: relative;
+  border-radius: 43px;
+}
+
+.mobile-menu-icon {
+  display: none;
+}
+
+/* ------------------- */
+/* ✅ MOBILE STYLES */
+/* ------------------- */
+@media (max-width: 992px) {
+  .custom-header {
+    padding: 0 1rem;
+    height: 70px;
+    border-radius: 20px;
+  }
+
+  .header-logo {
+    height: 50px;
     left: 0;
-    width: 100%;
-    height: 3px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, #ff0080, #7928ca, #007bff);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-image: linear-gradient(to right, transparent, black 40%, black 53%, transparent);
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
-    transition: all 0.3s ease-in-out;
-}
-
-
-.btn-outline-dark {
-  border: 1px solid #333;
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.btn-outline-dark:hover {
-  background: #333;
-  color: #fff;
-}
-
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-@media (max-width: 991px) {
-  .navbar-nav {
-    margin-top: 1rem;
-    gap: 0.5rem;
   }
 
-  .d-flex.gap-2 {
-    margin-top: 1rem;
+  .header-right,
+  .header-bg {
+    display: none;
+  }
+
+  /* Show menu icon only on mobile */
+  .mobile-menu-icon {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  /* Hide nav by default */
+  .header-nav {
+    display: none;
+  }
+
+.header-nav.mobile-open {
+    display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 0.5rem;
-  }
+    position: fixed;
+    top: 71px;
+    right: 0px;
+    width: inherit;
+    background: #fff;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 10px 10px;
+}
 
-  .btn-outline-dark {
+  .header-nav .nav-link {
+    font-size: 1.2rem;
     width: 100%;
-    text-align: left;
   }
 }

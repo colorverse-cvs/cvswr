@@ -1,12 +1,13 @@
 .breadcrumb-overlay {
-  position: relative;
-  height: 270px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centers title block vertically */
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 50px; /* space above nav */
+    position: relative;
+    height: 372px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 71px;
+    padding-bottom: 12px;
+    margin-top: -92px;
 }
 
 .breadcrumb-header {
@@ -58,10 +59,10 @@
 }
 
 @media (max-width: 768px) {
-  .breadcrumb-overlay {
-   height: 225px;
-    padding-bottom: 40px;
-  }
+.breadcrumb-overlay {
+    height: 383px;
+    padding-bottom: 0px;
+}
 
   .breadcrumb-title {
     font-size: 1.8rem;

@@ -1,4 +1,5 @@
 import "./HeroSection.css";
+import EnquiryButton from "../../UI_Component/button";
 
 const HeroSection = () => {
   const heroData = {
@@ -50,7 +51,7 @@ const HeroSection = () => {
               <p
                 dangerouslySetInnerHTML={{ __html: heroData.description }}
               />
-              <button className="hero-btn">{heroData.contentBtn}</button>
+               <EnquiryButton label="Get In Touch" />
             </div>
 
             <div className="col-md-6">

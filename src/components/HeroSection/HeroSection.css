@@ -24,7 +24,9 @@
   margin-bottom: 20px;
   font-size: 3.5rem;
   color: #000000;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .overlay p {

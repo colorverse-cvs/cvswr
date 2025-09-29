@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.PNG";
 import "./Header.css";
+import linkedin from "../../assets/linkedin.png";
+import instagram from "../../assets/instagram.png";
+import mail from "../../assets/mail.png";
+import WhatsApp from "../../assets/WhatsApp.webp"
+
+
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,19 +53,26 @@ function Header() {
 
       <div className="header-right">
         <a href="https://instagram.com" target="_blank" rel="noreferrer">
-          <i className="fab fa-instagram"></i>
+          <img className="icons" src={WhatsApp} alt="" />
         </a>
-       <a href="mailto:someone@example.com" target="_blank" rel="noreferrer">
-<i class="fa-regular fa-envelope"></i>
-</a>
+        <a href="mailto:someone@example.com" target="_blank" rel="noreferrer">
+          <img className="icons" src={mail} alt="" />
+        </a>
 
         <a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noreferrer"
->
-  <i class="fab fa-whatsapp"></i>
-</a>
+          href="https://wa.me/1234567890"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="icons" src={instagram} alt="" />
+        </a>
+        <a
+          href="https://wa.me/1234567890"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="icons" src={linkedin} alt="" />
+        </a>
 
       </div>
     </header>

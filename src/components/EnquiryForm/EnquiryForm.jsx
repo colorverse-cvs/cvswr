@@ -66,7 +66,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
             required
           />
 
-          <button type="submit" className="btn-send">
+          <button type="submit" className="btn-enquiry">
             Send Message
           </button>
         </form>

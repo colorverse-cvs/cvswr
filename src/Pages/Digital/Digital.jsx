@@ -73,7 +73,7 @@ function Services() {
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <button
-                className="btn-enquiry"
+                className="btn-enquiry mt-4"
                 onClick={() => setSelectedService(service)}
               >
                 View More

@@ -64,17 +64,21 @@ button:focus-visible {
   }
 }
 
-.section-heading{
-     color: #1890C7;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: #1890C7;
- 
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
+.section-heading {
+    font-family: Montserrat, sans-serif;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    /* Gradient text color */
+    background: linear-gradient(135deg, #6f00ff, #c700ff); /* adjust colors like the uploaded image */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 @media (min-width: 768px) {
   .section-heading {
     margin-top: 34px;

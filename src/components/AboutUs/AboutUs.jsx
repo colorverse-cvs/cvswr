@@ -1,15 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./AboutUs.css";
 import aboutImage from "../../assets/about-us.png";
 
 const AboutUs = () => {
+  const navigate = useNavigate(); // 👈 navigation hook
+
   const aboutData = {
     headingSmall: "About Us",
     headingMain: "Design & Develop <br /> For Better Solution",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo amet posuere porta vitae mi accumsan. Ultricies mauris, habitasse nec mauris sagittis imperdiet lobortis porttitor. Ipsum mi sed uta aliquet ut. Turpis viverra volutpat sed eu porta morbi egestas ut hac rutrum ut augue vitae, nec, ut. Nibh nibh quam",
+      "At ColorVerse Studio, we specialize in bringing your vision to life with a comprehensive suite of multimedia services. Our expertise spans 3D advertising, graphic design, video editing, and voice-over solutions, offering a one-stop shop for all your creative needs.",
     buttonText: "Learn More",
     image: aboutImage,
+  };
+
+  // Handle button click
+  const handleLearnMore = () => {
+    navigate("/about");
   };
 
   return (
@@ -19,6 +27,7 @@ const AboutUs = () => {
           {aboutData.headingSmall}
         </small>
       </div>
+      
 
       <div className="row align-items-center mt-4">
         <div className="col-md-6 mb-4 mb-md-0 text-center text-md-start">
@@ -34,7 +43,9 @@ const AboutUs = () => {
             dangerouslySetInnerHTML={{ __html: aboutData.headingMain }}
           />
           <p className="text-muted mb-4">{aboutData.description}</p>
-          <button className="btn btn-primary">{aboutData.buttonText}</button>
+          <button className="btn-enquiry" onClick={handleLearnMore}>
+            {aboutData.buttonText}
+          </button>
         </div>
       </div>
     </section>

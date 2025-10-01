@@ -226,7 +226,7 @@ const HeroSection = () => {
 
                         {/* Submit Button */}
                         <div className="col-12">
-                          <button type="submit" className="btn-enquiry  w-50">
+                          <button type="submit" className="btn-enquiry  w-50 mt-2">
                             {heroData.form.submitBtn}
                           </button>
                         </div>
@@ -356,7 +356,7 @@ const HeroSection = () => {
                         </div>
 
                         <div className="col-6">
-                          <button type="submit" className="btn-enquiry w-50">
+                          <button type="submit" className="btn-enquiry w-100 mt-2">
                             Submit Enquiry
                           </button>
                         </div>

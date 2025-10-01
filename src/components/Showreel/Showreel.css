@@ -151,19 +151,21 @@
   -webkit-text-fill-color: transparent;
 }
 .agency-list {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
   margin: 0 0 15px 0;
+  padding: 0px 0px 0px 20px;
 }
-.agency-list li {
+/* .agency-list li {
   font-size: 0.95rem;
   color: #333;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 8px;
+} */
+.showreel-btn{
+  
 }
-
 
 .agency-text {
   font-size: 1rem;

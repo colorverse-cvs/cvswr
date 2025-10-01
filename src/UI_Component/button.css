@@ -1,24 +1,49 @@
-
 .btn-enquiry {
-  padding: 12px 22px !important;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
-  border: none;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  margin-top: 25px;
+    position: relative;
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+    background: transparent;
+    background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* transition: all 0.4s ease; */
+    z-index: 1;
+    overflow: hidden;
 }
 
-.btn-enquiry {
-  background: linear-gradient(135deg, #6f00ff, #c700ff);
-  color: white;
+/* Gradient border using pseudo-element */
+.btn-enquiry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  padding: 2px; /* border thickness */
+  background: linear-gradient(135deg, #4e0280d2, #900076ce);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
+/* Hover effect */
 .btn-enquiry:hover {
-  background: linear-gradient(135deg, #8a00ff, #e600ff);
-  transform: translateY(-2px);
+  /* transform: translateY(-3px) scale(1.05); */
+  box-shadow: 0 6px 15px rgba(111, 0, 255, 0.3);
+
+  /* Gradient background and white text */
+  /* background: linear-gradient(135deg, #6f00ff, #c700ff); */
+  -webkit-background-clip: initial; /* remove text clip */
+  -webkit-text-fill-color: initial; /* reset text fill */
+  color: #fff;
 }
-
-

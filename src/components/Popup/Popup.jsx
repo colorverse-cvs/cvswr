@@ -24,7 +24,7 @@ const Popup = ({ isOpen, onClose, title, alldescription, onEnquiry, image, label
 
           <div className="popup-actions">
             <button className="btn-cancel" onClick={onClose}>Cancel</button>
-            <button className="btn-enquiry" onClick={onEnquiry}>Enquiry</button>
+            <button className="btn-enquiry mt-4" onClick={onEnquiry}>Enquiry</button>
           </div>
         </div>
       </div>

@@ -161,3 +161,10 @@
     font-size: 13px;
   }
 }
+
+.services-carousel-container 
+  .swiper-horizontal > .swiper-pagination-bullets,
+.services-carousel-container 
+  .swiper-pagination-horizontal.swiper-pagination-bullets {
+  display: none !important;
+}

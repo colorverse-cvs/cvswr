@@ -19,9 +19,10 @@ import perfectimg from "../../assets/reels.jpg";
 
 // ✅ Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Showreels = () => {
   const videoRefs = useRef([]);
@@ -34,20 +35,21 @@ const Showreels = () => {
           All <span>Creative Reels</span>
         </h2>
         <p className="page-subtitle">
-          Dive into our full collection of reels that <span>inspire</span>, 
-          <span> engage</span>, and <span>elevate brands</span>.
+          Dive into our full collection of reels that <span>inspire</span>,{" "}
+          <span>engage</span>, and <span>elevate brands</span>.
         </p>
         <div className="heading-underline"></div>
       </div>
 
-      {/* ✅ Replace Grid with Swiper */}
+      {/* ✅ Swiper for Reels */}
       <Swiper
-        slidesPerView={4}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
+        slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
+        pagination={{ clickable: true, el: ".swiper-pagination" }}
         className="showreel-swiper"
         breakpoints={{
           0: { slidesPerView: 1 },
@@ -67,29 +69,36 @@ const Showreels = () => {
 
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                className="reel-video"
+                controls
+                autoPlay
+                loop
                 muted
+                playsInline
+                className="reel-video"
                 onMouseEnter={() => videoRefs.current[index]?.play()}
                 onMouseLeave={() => {
-                  videoRefs.current[index].pause();
+                  videoRefs.current[index]?.pause();
                   videoRefs.current[index].currentTime = 0;
                 }}
               >
                 <source src={reel.videoUrl} type="video/mp4" />
               </video>
 
+              {/* Action Buttons */}
               <div className="action-buttons">
                 <div className="icon-btn"><FaHeart /></div>
                 <div className="icon-btn"><FaRegComment /></div>
                 <div className="icon-btn"><FaShare /></div>
               </div>
 
+              {/* Reel Info */}
               <div className="reel-info">
                 <p className="username">@{reel.username}</p>
                 <p className="caption">{reel.caption}</p>
                 <p className="music">🎵 {reel.music}</p>
               </div>
 
+              {/* Bottom Nav */}
               <div className="bottom-nav">
                 <FaHome />
                 <FaSearch />
@@ -100,9 +109,14 @@ const Showreels = () => {
             </div>
           </SwiperSlide>
         ))}
+
+        {/* ✅ Swiper Controls (MUST be inside Swiper, not wrapped) */}
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
       </Swiper>
 
-      {/* ✅ Your extra section remains */}
+      {/* ✅ Extra Section */}
       <section className="perfect-control-section">
         <div className="illustration">
           <img className="responsive-img" src={perfectimg} alt="Perfect Control" />
@@ -115,8 +129,9 @@ const Showreels = () => {
             Building lasting connections while delivering exceptional experiences.
           </p>
           <p className="description">
-            Elevate your brand with creativity, precision, and innovation. Our solutions are
-            designed to captivate audiences and create unforgettable experiences.
+            Elevate your brand with creativity, precision, and innovation. Our
+            solutions are designed to captivate audiences and create unforgettable
+            experiences.
           </p>
           <div className="features">
             <p><FaCheckCircle className="icon" /> Seamless User Experience</p>
@@ -128,6 +143,7 @@ const Showreels = () => {
         </div>
       </section>
 
+      {/* ✅ Project Start Section */}
       <ProjectStart
         title={<>We Design, Build <br /> and Elevate</>}
         buttonLabel="Contact Us"

@@ -79,8 +79,8 @@ button:focus-visible {
     -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .section-heading {
     margin-top: 34px;
   }
-}
+} */

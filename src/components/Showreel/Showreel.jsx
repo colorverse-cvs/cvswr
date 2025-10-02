@@ -32,17 +32,23 @@ const Showreel = () => {
               <span className="highlight">Creative Reels</span> That Inspire
             </h3>
             <p className="agency-text">
-              We create <strong>visually stunning, scroll-stopping reels</strong> that elevate your brand presence. 
+              We create <strong>visually stunning, scroll-stopping reels</strong> that elevate your brand presence.
               From smooth animations to high-quality edits, our reels are designed to <strong>engage, convert, and impress</strong>.
             </p>
             <ul className="agency-list">
-              <li>🎥 High-Quality Video Production</li>
-              <li>✨ Trend-Focused & Brand-Aligned</li>
-              <li>📈 Optimized for Engagement</li>
+              <li> High-Quality Video Production</li>
+              <li> Trend-Focused & Brand-Aligned</li>
+              <li> Optimized for Engagement</li>
             </ul>
-            <button className="agency-btn mt-3" onClick={() => navigate("/showreels")}>
-              See All
-            </button>
+            <div className="d-flex justify-content-md-left">
+              <button
+                className="btn-enquiry showreel-btn mt-3"
+                onClick={() => navigate("/showreels")}
+              >
+                See All
+              </button>
+            </div>
+
           </div>
 
           {/* Right Section – Swiper */}

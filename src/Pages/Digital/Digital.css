@@ -90,17 +90,17 @@
 .btn-enquiry {
   display: inline-block;     
   padding: 10px 35px;        
-  font-size: 1rem;            
-  background-color: #6f00ff; 
+  /* font-size: 1rem;             */
+  /* background-color: #6f00ff;  */
   color: #fff;               
-  border: none;              
-  border-radius: 10px;    
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  border: none;        
+  /* border-radius: 10px;     */
+  /* cursor: pointer; */
+  /* transition: background 0.3s, transform 0.3s; */
   align-self: center;       
 }
 
-.btn-enquiry:hover {
+/* .btn-enquiry:hover {
   background-color: #c700ff; 
   transform: scale(1.05);  
 }
@@ -111,7 +111,7 @@
   align-items: center;
   padding: 60px 20px;
   background: linear-gradient(135deg, #f3f0ff, #fff0ff);
-}
+} */
 
 .stats-wrapper {
     display: flex;

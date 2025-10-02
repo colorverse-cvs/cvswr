@@ -127,8 +127,7 @@ body {
   gap: 15px;
 }
 
-.btn-cancel,
-.btn-enquiry {
+.btn-cancel{
   padding: 12px 24px;
   border-radius: 10px;
   font-weight: 600;
@@ -143,21 +142,26 @@ body {
 .btn-cancel {
   background: #f0f0f0;
   color: #333;
+  border-radius: 40px;
+  padding: 10px 40px 10px 40px;
+  border: 1px solid;
 }
 
 .btn-cancel:hover {
   background: #e0e0e0;
 }
 
-.btn-enquiry {
-  background: linear-gradient(135deg, #6f00ff, #c700ff);
+/* .btn-enquiry {
+  border: linear-gradient(135deg, #6f00ff, #c700ff) !important;
   color: white;
-}
+  border-radius: 50px;
 
+} */
+/* 
 .btn-enquiry:hover {
   background: linear-gradient(135deg, #8a00ff, #e600ff);
   transform: translateY(-2px);
-}
+} */
 
 @media (max-width: 768px) {
   .popup-container.split-layout {

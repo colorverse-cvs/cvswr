@@ -1,19 +1,18 @@
-
+/* Hero Section */
 .single-hero-section {
   min-height: 100vh;
-  background-image: url(../../assets/herobg.png);
+  background-image: url(../../assets/bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   top: -92px;
-    position: relative;
 }
 
 .overlay {
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -23,105 +22,91 @@
 .overlay h1 {
   margin-bottom: 20px;
   font-size: 3.5rem;
-  color: #000000;
-  font-family: 'Montserrat', sans-serif !important;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
 }
 
 .overlay p {
   font-size: 1.2rem;
   color: #161616bd;
-  font-family: 'Montserrat', sans-serif;
-  padding: 30px 0px;
+  padding: 30px 0;
 }
 
 .contain-p {
-  padding: 0px !important;
+  padding: 0 !important;
 }
 
-.form-stack-wrapper {
-  background-color: #f8f9fa;
-  position: relative;
-  width: fit-content;
-  border-radius: 10px;
+
+
+.form-card {
+    /* background: #830176cc; */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    color: #000000;
+    margin-bottom: 15px;
 }
 
-.stack-card {
-  width: 300px;
-  height: 435px;
-  border-radius: 12px;
-  position: absolute;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card-4 {
-  background-image: url(../../assets/f2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 0;
-  transform: translate(299px, 0px);
-  height: 300px !important;
-}
-
-.card-3 {
-  background-image: url(../../assets/f1.webp);
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  transform: translate(207px, 2px);
-  height: 345px !important;
-}
-
-.card-2 {
-  background-image: url(../../assets/f3.jpg);
-  background-size: cover;
-  background-position: center;
-  z-index: 2;
-  transform: translate(104px, 0px);
-  height: 390px !important;
-}
-
-.card-1 {
-  z-index: 3;
-  position: relative;
-  width: 300px;
-  max-width: 100%;
-}
-
-.form-section {
-  background: #000000d8;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.form-label {
+  font-size: 15px !important;
+  color: rgb(0, 0, 0);
 }
 
 .form-control,
-.form-select {
+.form-select,
+textarea {
+  border-radius: 10px;
+  border: 2px solid #ffffff !important;
+  padding: 5px;
   font-family: 'Montserrat', sans-serif;
+  background-color: #d19fe4;
+}
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    background: #a967a147 ;
+}   
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
-h1, p, input, select, textarea, button {
-  font-family: 'Montserrat', sans-serif;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+  background-color: #ffffff00;
+  border: 2px solid white;
 }
-
-.hero-btn {
-  padding: 12px 36px;
-  border-radius: 12px;
-  background: #0d6efd;
-  color: white;
+.nav-tabs {
+  border-bottom: white 2px solid;
+}
+.btn-primary {
+  background-color: #0d6efd;
   border: none;
-  font-size: 18px;
 }
 
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+/* Form Separator */
+.form-separator {
+  width: 2px;
+  background: white;
+  margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 992px) {
   .overlay h1 {
     font-size: 2.5rem;
   }
-
   .overlay p {
     font-size: 1rem;
   }
-
-
 }
 
 @media (max-width: 768px) {
@@ -129,45 +114,30 @@ h1, p, input, select, textarea, button {
     min-height: auto;
     padding: 2rem 0;
   }
-
   .overlay {
     flex-direction: column;
-    padding: 1rem;
-    text-align: center;
     padding-top: 130px;
+    text-align: center;
   }
-
-  .card-2,
-  .card-3,
-  .card-4 {
-    display: none !important;
+  .form-wrapper {
+    flex-direction: column;
+    padding: 15px;
   }
-
-  .form-stack-wrapper {
-    background: none;
-    display: flex;
-    justify-content: center;
+  .form-separator {
     width: 100%;
+    height: 2px;
+    background: white;
+    margin: 10px 0;
   }
-
-  .card-1 {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    transform: none;
-  }
-
   .overlay h1 {
     font-size: 1.8rem;
   }
-
   .overlay p {
     font-size: 1rem;
     padding: 10px 0;
   }
-
-  .hero-btn {
-    font-size: 16px;
-    padding: 10px 24px;
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
   }
 }

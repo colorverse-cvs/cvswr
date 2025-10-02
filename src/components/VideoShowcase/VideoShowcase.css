@@ -53,7 +53,7 @@
 
 .big-swiper .swiper-pagination {
   position: absolute;
-  bottom: 15px; /* distance from bottom */
+  bottom: 60px; /* distance from bottom */
   width: 100%;
   text-align: center;
   z-index: 20; /* must be higher than overlay */

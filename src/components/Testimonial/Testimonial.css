@@ -1,6 +1,6 @@
 .testimonial-section {
     position: relative;
-    padding: 60px 15px;
+    padding: 0px 15px;
     max-width: 80%;
     margin: auto;
 }
@@ -32,6 +32,9 @@
   .avatar {
     box-shadow: none;
   }
+  .testimonial-section {
+    padding: 40px 15px;
+}
 }
 
 

@@ -1,94 +1,163 @@
-.about-hero {
-  background: linear-gradient(90deg, #7f00ff, #e100ff);
-  color: white;
-  padding: 4rem 1rem;
-}
-
-
-
-.team-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-  width: 280px !important;
-  /* Increased card width */
-}
-
-.team-swiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.about-hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.section-title {
+/* Gradient title */
+.gradient-text {
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  background: linear-gradient(90deg, #6f00ff, #c700ff, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paragraphs */
+.story-text {
+  color: #555;
+  line-height: 1.7;
   margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
 }
 
-.section-subtitle {
-  color: #666;
-  max-width: 600px;
-  margin: auto;
+.story-text:nth-child(1) { animation-delay: 0.2s; }
+.story-text:nth-child(2) { animation-delay: 0.4s; }
+.story-text:nth-child(3) { animation-delay: 0.6s; }
+
+/* Image hover effect */
+.about-image {
+  max-width: 100%;      /* ensures responsive */
+  width: 100%;          /* take full width of column */
+  height: auto;         /* maintain aspect ratio */
+  border-radius: 1rem;  /* rounded corners */
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.story-image-wrapper {
-  position: relative;
-  display: inline-block;
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
 }
 
+/* Badge styling */
 .years-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: #7f00ff;
-  color: white;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #6f00ff, #c700ff);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
   font-size: 0.9rem;
-  padding: 5px 12px;
-  border-radius: 12px;
 }
 
-.value-card {
-  border: none;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
+/* Background shapes */
+.bg-shape {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
 }
 
-.value-card:hover {
+.bg-shape-top {
+  top: -100px;
+  left: -100px;
+  background: #c700ff;
+}
+
+.bg-shape-bottom {
+  bottom: -100px;
+  right: -100px;
+  background: #6f00ff;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.values-section {
+  background-color: #d0dbe1;
+}
+/* Container grid */
+.values-section .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.values-section .card .icon i {
+  font-size: 3rem;
+  color: transparent;
+  background: linear-gradient(to right, var(--grad));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
+/* Card styling */
+.values-section .card {
+  --grad: #7f00ff, #e100ff;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  display: grid;
+  grid-template:
+    'title icon'
+    'content content'
+    'bar bar' / 1fr auto;
+  background: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+  color: #444;
+  gap: 1.5rem;
+  box-shadow:
+    inset -2px 2px rgba(255, 255, 255, 1),
+    -20px 20px 40px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.values-section .card:hover {
   transform: translateY(-5px);
 }
 
-.value-icon {
-  font-size: 2rem;
-  color: #7f00ff;
-  margin-bottom: 0.5rem;
+/* Card title */
+.values-section .card .title {
+  grid-area: title;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  align-self: end;
 }
 
-.team-img {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Card icon */
+.values-section .card .icon {
+  grid-area: icon;
+  font-size: 3rem;
+  color: transparent;
+  background: linear-gradient(to right, var(--grad));
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
+/* Card content */
+.values-section .card .content {
+  grid-area: content;
+}
+
+/* Bottom gradient bar */
+.values-section .card::after {
+  content: "";
+  grid-area: bar;
+  height: 2px;
+  background: linear-gradient(90deg, var(--grad));
+  border-radius: 1px;
+}
 .mission-section {
-  background: linear-gradient(90deg, #7f00ff, #e100ff);
-  color: white;
-  padding: 3rem 1rem;
-}
-
-.mission-section blockquote {
-  font-size: 1.2rem;
-  font-style: italic;
-  max-width: 700px;
-  margin: auto;
+    background-image: url(https://t3.ftcdn.net/jpg/14/81/34/16/360_F_1481341615_7Et31VorFimZVbJzjmfXpcEYCSODrCmX.jpg);
+    padding: 62px 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

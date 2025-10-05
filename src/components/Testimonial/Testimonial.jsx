@@ -36,7 +36,7 @@ const testimonials = [
 const Testimonial = () => {
   return (
     <section className="testimonial-section text-center">
-      <p className="section-heading mb-5">Testimony</p>
+      <p className="section-heading mt-md-5 mb-4">Testimony</p>
       <h2 className="fw-bold mb-md-5">What Do Our Clients Says <br /> About Us</h2>
 
       <Swiper

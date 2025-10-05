@@ -1,3 +1,47 @@
+/* wrapper that contains slider + buttons */
+.showreel-swiper-wrapper {
+  position: relative;
+  overflow: visible; /* important so top-outside buttons are visible */
+}
+
+/* hide default built-in buttons if they are present */
+.showreel-swiper .swiper-button-prev,
+.showreel-swiper .swiper-button-next {
+  /* display: none; */
+}
+
+/* custom nav buttons that sit OUTSIDE the slider (above it) */
+.showreel-custom-swiper-button{
+  position: absolute;
+  top: -50px;                /* negative to move above the top of slider */
+  width: 35px;
+  height: 35px;
+  background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+  border-radius: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 60;
+  cursor: pointer;
+  border: none;
+  font-size: 0px;
+}
+
+/* side-by-side top-right */
+.custom-prev { right: 54px; } /* left of next */
+.custom-next { right: 12px; } /* right-most */
+
+.showreel-custom-swiper-button svg 
+{ 
+   width: 34px;
+  height: 34px;
+  fill: #fff;
+ }
+
+/* make sure the column doesn't clip the buttons */
+/* .col-12.col-md-8 { overflow: visible; } */
+
 .showreel-swiper {
   width: 100%;
   padding: 0 5px;
@@ -5,12 +49,6 @@
 
 .swiper-wrapper {
   margin-left: 2px;
-}
-
-/* Hide default navigation if you want custom arrows later */
-.swiper-button-next,
-.swiper-button-prev {
-  display: none !important;
 }
 
 .phone-frame {

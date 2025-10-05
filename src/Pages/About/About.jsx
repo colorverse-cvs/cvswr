@@ -95,7 +95,7 @@ export const ValuesSection = () => (
   <section className="values-section py-5">
     <div className="container">
       <h2 className="section-title text-center">Our Values</h2>
-      <p className="text-center text-muted">
+      <p className="text-center ">
         The principles that guide everything we do at The Colorverse
       </p>
 
@@ -130,7 +130,7 @@ export const ValuesSection = () => (
 //     <div className="container">
 //       <h2 className="section-title text-center">Meet Our Team</h2>
 //       <p
-//         className="text-center text-muted mb-4"
+//         className="text-center  mb-4"
 //         style={{ maxWidth: "700px", margin: "0 auto" }}
 //       >
 //         Our team blends creativity and technology to craft stunning 3D ads and videos.
@@ -155,7 +155,7 @@ export const ValuesSection = () => (
 //                 }}
 //               />
 //               <h5 className="mb-1">{member.name}</h5>
-//               <p className="text-muted mb-2">{member.role}</p>
+//               <p className=" mb-2">{member.role}</p>
 //               <p className="small">{member.desc}</p>
 //             </div>
 //           </div>

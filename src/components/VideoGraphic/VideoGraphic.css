@@ -1,0 +1,84 @@
+.video-swiper .swiper-button-prev, .video-swiper .swiper-button-next {
+    color: #ffffff;
+    background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+    border-radius: 25%;
+    width: 40px;
+    height: 40px;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 10px;
+}
+
+/* Prev button (left side, but closer to video) */
+.video-swiper .swiper-button-prev {
+  left: 150px;  /* adjust inward */
+}
+
+/* Next button (right side, but closer to video) */
+.video-swiper .swiper-button-next {
+  right: 150px; /* adjust inward */
+}
+
+/* Hover effect */
+.video-swiper .swiper-button-prev:hover,
+.video-swiper .swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+   
+   .video-wrapper {
+    max-width: 800px;
+    height: 450px; /* fixed height for consistent video display */
+    overflow: hidden;
+    position: relative;
+    }
+
+    .video-wrapper video,
+    .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* for video */
+    border-radius: 1rem; /* rounded corners for both */
+    display: block;
+    }
+
+    .video-section {
+    position: relative;
+    overflow: hidden;
+    }
+
+    .badge-pill {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    }
+
+    .bg-vector {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #ff6ec4, #7873f5);
+    opacity: 0.2;
+    z-index: 0;
+    border-radius: 50%;
+    }
+
+    .top-left {
+    top: 0;
+    left: 0;
+    }
+
+    .bottom-right {
+    bottom: 0;
+    right: 0;
+    }
+
+    /* Center slick-slide contents if needed */
+    .slick-slide > div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    }

@@ -18,13 +18,13 @@ function Courses() {
       <section className="intro-section text-center">
         <section className="intro-section text-center">
           <div className="container">
-            <p className="lead text-muted stylish-intro">
+            <p className="lead  stylish-intro">
               At <span className="brand">ColorVerse Studio</span>, we specialize
               in bringing your vision to life with a comprehensive suite of
-              multimedia services. Our expertise spans{" "}
-              <strong className="highlight">3D advertising</strong>,{" "}
-              <strong className="highlight">graphic design</strong>,{" "}
-              <strong className="highlight">video editing</strong>, and{" "}
+              multimedia services. Our expertise spans{" "} <br></br>
+              <strong className="highlight">3D advertising</strong> |{" "}
+              <strong className="highlight">graphic design</strong> |{" "}
+              <strong className="highlight">video editing</strong> |{" "}
               <strong className="highlight">voice-over solutions</strong>.
             </p>
           </div>

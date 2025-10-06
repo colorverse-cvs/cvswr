@@ -22,7 +22,7 @@ const AboutUs = () => {
 
   return (
     <section className="about-us container my-5">
-      <div className="text-center mb-4">
+      <div className="text-center mb-5">
         <small className="section-heading ">
           {aboutData.headingSmall}
         </small>
@@ -42,7 +42,7 @@ const AboutUs = () => {
             className="fw-bold mb-3"
             dangerouslySetInnerHTML={{ __html: aboutData.headingMain }}
           />
-          <p className="text-muted mb-4">{aboutData.description}</p>
+          <p className=" mb-4">{aboutData.description}</p>
           <button className="btn-enquiry" onClick={handleLearnMore}>
             {aboutData.buttonText}
           </button>

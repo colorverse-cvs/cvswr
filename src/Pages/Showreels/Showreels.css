@@ -1,17 +1,39 @@
-
-.showreel-swiper {
-  position: relative;
+.showreel-swiper-wrapper {
+  position: relative; /* make buttons relative to slider */
 }
 
-.swiper-controls {
+/* Common button styles */
+.showreels-custom-button {
   position: absolute;
-  top: -50px; /* adjust how high above the slider */
-  right: 20px;
+  top: -50px; /* top of slider */
+  width: 35px;
+  height: 35px;
+  background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+  border-radius: 25%;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
-  z-index: 10;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  font-size: 24px;
 }
+.showreels-custom-button svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+  /* ensure it’s visible */
+}
+/* Side by side top-right */
+.showreels-custom-prev {
+  right: 58px; /* left button */
+}
+
+.showreels-custom-next {
+  right: 10px; /* right button */
+}
+
+
 
 .swiper-pagination {
     position: static;
@@ -19,13 +41,6 @@
     gap: 6px;
     justify-content: center;
     margin-top: 25px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #6a11cb;
-  font-size: 20px;
-  font-weight: bold;
 }
 
 .perfect-control-section {

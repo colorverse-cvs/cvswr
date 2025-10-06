@@ -56,7 +56,7 @@ const Contact = () => {
 
       {/* Map Section */}
       <section className="container mb-5 animate-fade-in-delay">
-  <h5 className="text-center text-muted mb-3">Visit Our Office</h5>
+  <h5 className="text-center  mb-3">Visit Our Office</h5>
   <div className="map-container p-3">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.056364459955!2d74.47540622916964!3d19.710224319752005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc5939488f747b%3A0xcaccd2f624d0beb4!2sRahata%2C%20Maharashtra%20423107!5e0!3m2!1sen!2sin!4v1758397539054!5m2!1sen!2sin"

@@ -1,3 +1,7 @@
+.stylish-btn {
+  margin-bottom: 40px;
+}
+
 .banner-card {
   position: relative;
   background-color: #000;
@@ -7,6 +11,7 @@
 
 .big-card {
   height: 400px;
+  position: relative;
 }
 
 .small-card {
@@ -23,7 +28,7 @@
   position: absolute;
   inset: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   z-index: 2;
   pointer-events: none;
 }
@@ -31,6 +36,7 @@
 .banner-overlay * {
   pointer-events: auto;
 }
+
 /* Ensure the swiper container doesn’t shrink */
 .swiper {
   height: 100%;
@@ -39,7 +45,8 @@
 /* Position and style pagination dots */
 .swiper-pagination {
   position: absolute;
-  bottom: -20px; /* Adjust as needed */
+  bottom: -20px;
+  /* Adjust as needed */
   text-align: center;
   width: 100%;
   z-index: 10;
@@ -48,15 +55,19 @@
 /* Position pagination dots inside the carousel */
 .big-swiper {
   position: relative;
-  height: 500px; /* ensure height is set */
+  /* overflow: visible; */
+  height: 500px;
+  margin-top: -70px;
 }
 
 .big-swiper .swiper-pagination {
   position: absolute;
-  bottom: 60px; /* distance from bottom */
+  bottom: 60px;
+  /* distance from bottom */
   width: 100%;
   text-align: center;
-  z-index: 20; /* must be higher than overlay */
+  z-index: 20;
+  /* must be higher than overlay */
 }
 
 .big-swiper .swiper-pagination-bullet {
@@ -72,3 +83,66 @@
   background-color: #fff;
 }
 
+.ai-video {
+  margin-top: -45px;
+}
+
+.big-card .custom-prev,
+.big-card .custom-next {
+  position: absolute;
+  top: -30px;
+  /* top of card */
+  width: 35px;
+  height: 35px;
+  background: rgba(180, 48, 48, 0.9);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 20px;
+}
+
+/* Next button on top-right */
+.big-card .custom-next {
+  right: 10px;
+}
+
+/* Prev button just left of Next */
+.big-card .custom-prev {
+  right: 55px;
+}
+
+.video-showcase-custom-button {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  padding: 1px 0px 10px 0px;
+  background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+  border-radius: 25%;
+  cursor: pointer;
+
+}
+
+.video-showcase-custom-button svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+  /* ensure it’s visible */
+}
+
+.video-showcase-custom-button svg {
+  color: #000 !important;
+}
+
+.video-showcase-custom-prev {
+  right: -88%;
+  top: -50px;
+}
+
+.video-showcase-custom-next {
+  left: 94%;
+  top: -85px;
+}

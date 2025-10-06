@@ -2,9 +2,10 @@
 :root {
   --primary-gradient: linear-gradient(90deg, #7f00ff, #e100ff);
   --glass-bg: rgba(255, 255, 255, 0.8);
-      --shadow-lg: 0px 0px 10px rgb(0 0 0 / 14%);
+  --shadow-lg: 0px 0px 10px rgb(0 0 0 / 14%);
 }
 
+/* Contact Cards */
 .contact-card {
   border-radius: 20px;
   background: #fff;
@@ -21,7 +22,7 @@
   inset: 0;
   border-radius: 20px;
   padding: 2px;
-   background: linear-gradient(135deg, rgba(78, 115, 248, 0.178), rgba(243, 106, 211, 0.185), rgba(247, 180, 156, 0.205));
+  background: linear-gradient(135deg, rgba(78,115,248,0.178), rgba(243,106,211,0.185), rgba(247,180,156,0.205));
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -29,7 +30,7 @@
 
 .contact-card:hover {
   transform: translateY(-10px) scale(1.02);
-      box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.2);
 }
 
 .contact-card:hover::before {
@@ -43,19 +44,6 @@
 
 .contact-card:hover h5 {
   color: #7f00ff;
-}
-
-/* Cards */
-.contact-card {
-  border-radius: 20px;
-  background: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: var(--shadow-lg);
-}
-
-.contact-card:hover {
-  transform: translateY(-10px) scale(1.02);
-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
 }
 
 .contact-icon-bubble {
@@ -83,8 +71,10 @@ box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
 .form-control {
   border-radius: 10px;
   border: 1px solid #ddd;
+  background-color: #a967a11c;
 }
 
+/* Buttons */
 .btn-gradient {
   background: var(--primary-gradient);
   color: white;
@@ -104,11 +94,8 @@ box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
   background: var(--glass-bg);
   box-shadow: var(--shadow-lg);
 }
-
-.text-gradient {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.card-title{
+  color: #7f00ff;
 }
 
 /* Animations */
@@ -125,7 +112,6 @@ box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1.2s ease forwards;
 }
 
-
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-5px); }
@@ -134,4 +120,11 @@ box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
 
 .animate-up {
   animation: fadeIn 1s ease forwards, float 4s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .contact-form, .map-container {
+    margin-bottom: 30px;
+  }
 }

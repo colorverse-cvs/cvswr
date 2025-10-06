@@ -1,16 +1,17 @@
+// src/.../EnquiryButton.jsx
 import React, { useState } from "react";
 import EnquiryForm from "../components/EnquiryForm/EnquiryForm";
-import "./button.css"; 
+import "./button.css";
 
-const EnquiryButton = ({ label = "Enquiry" }) => {
+const EnquiryButton = ({ label = "Enquiry", className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const openForm = () => setIsOpen(true);
   const closeForm = () => setIsOpen(false);
 
   return (
     <>
-      <button className="btn-enquiry" onClick={openForm}>
+      {/* combine base class + any custom class you pass */}
+      <button className={`btn-enquiry ${className}`} onClick={openForm}>
         {label}
       </button>
 

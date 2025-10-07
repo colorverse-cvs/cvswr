@@ -18,16 +18,18 @@ function Header() {
       setScrolled(window.scrollY > 10);
     };
 
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   return (
     <header className={`custom-header container ${scrolled ? "scrolled" : ""}`}>
       <div className="header-bg"></div>
 
       <div className="header-left">
-        <img src={logo} alt="Logo" className="header-logo" />
+        <a href="/"><img src={logo} alt="Logo" className="header-logo" /></a>
       </div>
 
       {/* Hamburger icon */}

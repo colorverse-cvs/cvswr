@@ -141,3 +141,6 @@ textarea {
     padding: 8px 16px;
   }
 }
+.invalid-feedback{
+  color: red !important;
+}

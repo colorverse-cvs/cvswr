@@ -1,8 +1,8 @@
 import React from "react";
 import ProjectStart from "../../components/ProjectStart/ProjectStart";
 import "./Courses.css";
-import courseimg from "../../assets/course.jpg";
-import courseimg1 from "../../assets/AeDesign2.jpg";
+import courseimg from "../../assets/Graphicdesign.png";
+import courseimg1 from "../../assets/Videoediting.png";
 import courseimg2 from "../../assets/idDesign.jpg";
 import courseimg3 from "../../assets/LrDesing4.jpg";
 import courseimg4 from "../../assets/psDesign3.jpg";
@@ -43,24 +43,21 @@ function Courses() {
               </p>
               <ul className="list-unstyled ms-3">
                 <li className="mb-2">
-                  <span className="highlight">Adobe Photoshop:</span> Image editing, photo manipulation, digital painting.
+                  <span className="highlight">Adobe Photoshop:</span> Students learn image editing, photo manipulation, digital painting, mastering layers, masks, filters, and creative tools.
                 </li>
                 <li className="mb-2">
-                  <span className="highlight">Adobe Illustrator:</span> Vector graphics, logos, icons, typography.
+                  <span className="highlight">Adobe Illustrator:</span>Students explore vector graphics, creating logos, icons, typography, illustrations, mastering paths, shapes, and pen tool.
                 </li>
                 <li>
-                  <span className="highlight">CorelDRAW:</span> Logo creation, signage, print design, advanced vector techniques.
+                  <span className="highlight">CorelDRAW:</span> Students learn vector design, logo creation, signage, print layout, mastering curves, layers, and color management.
                 </li>
               </ul>
               <EnquiryButton label="Enquire Now" />
             </div>
             <div className="col-lg-6 text-center">
-              <div className="course-illustration position-relative">
-                <img src={courseimg} alt="Design 1" className="floating-img" style={{ top: "16%", left: "15%", width: "119px" }} />
-                <img src={courseimg1} alt="Design 2" className="floating-img" style={{ top: "51%", left: "15%", width: "172px" }} />
-                <img src={courseimg2} alt="Design 3" className="floating-img" style={{ bottom: "53%", left: "37%", width: "157px" }} />
-                <img src={courseimg3} alt="Design 4" className="floating-img" style={{ bottom: "38%", right: "14%", width: "128px" }} />
-                <img src={courseimg4} alt="Design 5" className="floating-img" style={{ top: "52%", left: "46%", width: "100px" }} />
+              <div className="course-illustration">
+                <img src={courseimg} alt="Design 1" className="floating-img"/>
+      
               </div>
             </div>
           </div>
@@ -76,24 +73,20 @@ function Courses() {
               <p>
                 Intensive one-month course covering fundamentals to advanced techniques:
               </p>
-              <ul className="list-unstyled ms-3">
+              <ul className="list-unstyled ">
                 <li className="mb-2">
-                  <span className="highlight">Adobe Premiere Pro:</span> Video editing, trimming, sequencing, color correction.
+                  <span className="highlight">Adobe Premiere Pro:</span> Students learn video editing, cutting, trimming, sequencing, color correction, audio editing, transitions, effects, producing professional videos.
                 </li>
                 <li>
-                  <span className="highlight">Adobe After Effects:</span> Motion graphics, animation, compositing, visual effects.
+                  <span className="highlight">Adobe After Effects:</span> Students learn motion graphics, animation, compositing, layers, dynamic titles, visual effects, integrating After Effects with Premiere Pro.
                 </li>
               </ul>
               <EnquiryButton label="Enquire Now" />
 
             </div>
             <div className="col-lg-6 text-center">
-              <div className="course-illustration position-relative">
-                <img src={courseimg5} alt="Premiere Pro" className="floating-img" style={{ top: "18%", right: "12%", width: "119px" }} />
-                <img src={courseimg6} alt="After Effects" className="floating-img" style={{ top: "52%", right: "12%", width: "172px" }} />
-                <img src={courseimg2} alt="Editing Tools" className="floating-img" style={{ bottom: "53%", right: "34%", width: "157px" }} />
-                <img src={courseimg3} alt="Motion Graphics" className="floating-img" style={{ bottom: "38%", left: "19%", width: "128px" }} />
-                <img src={courseimg4} alt="VFX" className="floating-img" style={{ top: "52%", right: "42%", width: "100px" }} />
+              <div className="course-illustration">
+                <img src={courseimg1} alt="Premiere Pro" className="floating-img" />              
               </div>
             </div>
           </div>

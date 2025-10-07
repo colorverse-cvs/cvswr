@@ -73,7 +73,7 @@ const HeroSection = () => {
 
   return (
     <div className="single-hero-section">
-      <div className="overlay d-flex align-items-center justify-content-center">
+      <div className="overlay form-hero d-flex align-items-center justify-content-center">
         <div className="container">
           <div className="row align-items-center justify-content-center">
             {/* Left Content */}

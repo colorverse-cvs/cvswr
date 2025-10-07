@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="row gy-4">
 
           <div className="col-12 col-md-3 text-center text-md-start">
-            <img className="footer-logo mb-3" src={footerData.logo} alt="Logo" />
+           <a href="/"> <img className="footer-logo mb-3" src={footerData.logo} alt="Logo" /></a>
           </div>
 
           <div className="col-12 col-sm-6 col-md-3">

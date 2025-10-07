@@ -1,7 +1,10 @@
 import React from "react";
 import "./Footer.css";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import logo from "../../assets/symbol.PNG";
+import logo from "../../assets/Colorverse_Logo1.PNG";
+import linkedin from "../../assets/linkedin.png";
+import instagram from "../../assets/instagram.png";
+import mail from "../../assets/mail.png";
+import WhatsApp from "../../assets/WhatsApp.webp";
 
 const Footer = () => {
   const footerData = {
@@ -15,9 +18,10 @@ const Footer = () => {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo amet posuere porta vitae mi accumsan. Ultricies",
     subscribePlaceholder: "Your Email",
     socialLinks: [
-      { platform: "facebook", url: "#" },
-      { platform: "twitter", url: "#" },
-      { platform: "instagram", url: "#" },
+      { platform: "linkedin", url: "#", icon: linkedin },
+      { platform: "instagram", url: "#", icon: instagram },
+      { platform: "mail", url: "mailto:inbox@finance.com", icon: mail },
+      { platform: "whatsapp", url: "https://wa.me/1234567890", icon: WhatsApp },
     ],
   };
 
@@ -36,6 +40,7 @@ const Footer = () => {
             <p>Help: {footerData.contact.help}</p>
             <p>Email: {footerData.contact.email}</p>
           </div>
+
           <div className="col-12 col-sm-6 col-md-3">
             <h6 className="fw-bold footer-heading">About Us</h6>
             <p>{footerData.about}</p>
@@ -56,24 +61,23 @@ const Footer = () => {
 
             <p className="fw-bold footer-heading mb-2">Follow Us</p>
             <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-              {footerData.socialLinks.map((item, index) => {
-                let Icon;
-                if (item.platform === "facebook") Icon = FaFacebookF;
-                else if (item.platform === "twitter") Icon = FaTwitter;
-                else Icon = FaInstagram;
-
-                return (
-                  <a
-                    key={index}
-                    href={item.url}
-                    className="text-dark social-icon"
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
+              {footerData.socialLinks.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={item.icon}
+                    alt={item.platform}
+                    style={{ width: "28px", height: "28px" }}
+                  />
+                </a>
+              ))}
             </div>
           </div>
+
         </div>
       </div>
     </footer>

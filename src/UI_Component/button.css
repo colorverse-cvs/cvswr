@@ -1,3 +1,28 @@
+
+.btn-enquiry.project-start-btn,
+.project-start-container .btn-enquiry.project-start-btn {
+  background: #ffffff !important;          
+  color: #4e0280 !important;         
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  border: 2px solid #4e0280 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.btn-enquiry.project-start-btn::before {
+  display: none !important;
+}
+
+.btn-enquiry.project-start-btn:hover {
+  background: linear-gradient(135deg, #4e0280d2, #900076ce) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: initial !important;
+  box-shadow: 0 6px 15px rgba(111, 0, 255, 0.18);
+  transform: none;
+}
+
+
 .btn-enquiry {
     position: relative;
     display: inline-block;

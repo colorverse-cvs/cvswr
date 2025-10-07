@@ -37,19 +37,9 @@
 }
 
 .project-start-btn {
-  min-width: 140px;
-  font-weight: 600;
-  color: #4e73f8;
-  background-color: white;
-  border-radius: 0.75rem;
-  padding: 0.6rem 1rem;
-  border: none;
-  transition: all 0.3s ease;
+  background-color: white !important;
 }
 
-.project-start-btn:hover {
-  background-color: #f0f0f0;
-}
 
 @media (max-width: 576px) {
   .project-start-container {
@@ -69,4 +59,7 @@
   .project-start-btn {
     width: 100%;
   }
+}
+.project-start-btn{
+  background-color: #fff !important;
 }

@@ -3,9 +3,16 @@ import "./Popup.css";
 
 const Popup = ({ isOpen, onClose, title, alldescription, onEnquiry, image, label }) => {
   if (!isOpen) return null;
+  // Close when clicking on overlay
+const handleOverlayClick = (e) => {
+  if (e.target.classList.contains("popup-overlay")) {
+    onClose();
+  }
+};
+
 
   return (
-    <div className="popup-overlay">
+    <div className="popup-overlay" onClick={handleOverlayClick}>
       <div className="popup-container popup-container1 split-layout">
         <button className="popup-close" onClick={onClose}>✖</button>
 

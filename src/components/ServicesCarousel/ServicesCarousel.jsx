@@ -7,44 +7,74 @@ import "./ServicesCarousel.css";
 
 import Popup from "../../components/Popup/Popup";
 import EnquiryForm from "../../components/EnquiryForm/EnquiryForm";
+import ad3d from "../../assets/s6.jpg";
+import graphic from "../../assets/s5.jpg";
+import video from "../../assets/s4.jpg";
+import voice from "../../assets/s3.jpg";
+import social from "../../assets/s2.jpg";
+import web from "../../assets/s1.jpg";
 
 const services = [
   {
-    title: "Design",
+    title: "3D Product Advertisement",
     description:
-      "Lorem ipsum dolor sit amet, conse adipiscing elit. Curabi sed metus id et viverra augue.",
-    icon: "🖌️",
+      "Immersive and visually compelling ads using cutting-edge 3D modeling, rendering, animation.",
+    icon: "🎨",
     bgColor: "#F4B426",
+    image: ad3d,
     moreInfo:
-      "Our design service includes UX research, wireframing, prototyping, and high-fidelity UI design.",
+      "We create photorealistic 3D visuals and animations for products, helping your brand stand out with cinematic-quality promotional videos and dynamic presentations."
   },
   {
-    title: "Development",
+    title: "Graphic Design",
     description:
-      "Lorem ipsum dolor sit amet, conse adipiscing elit. Curabi sed metus id et viverra augue.",
-    icon: "🧩",
+      "Striking visuals to elevate your brand – logos, posters, social media content, and marketing.",
+    icon: "🖌️",
     bgColor: "#F3542A",
+    image: graphic,
     moreInfo:
-      "We develop full-stack applications using modern frameworks and best practices.",
+      "Our designers craft visually engaging and consistent branding materials, ensuring every design aligns with your identity and marketing goals."
   },
   {
-    title: "Testing & QA",
+    title: "Video Editing",
     description:
-      "Lorem ipsum dolor sit amet, conse adipiscing elit. Curabi sed metus id et viverra augue.",
-    icon: "☑️",
+      "From raw footage to polished, professional edits that tell your story and captivate audiences.",
+    icon: "🎬",
     bgColor: "#025F78",
+    image: video,
     moreInfo:
-      "Our QA team ensures your product is bug-free through automation and manual testing.",
+      "We handle color grading, transitions, motion graphics, and audio enhancements to deliver seamless, high-quality video content for all platforms."
   },
   {
-    title: "Deployment",
+    title: "Voice Over",
     description:
-      "Lorem ipsum dolor sit amet, conse adipiscing elit. Curabi sed metus id et viverra augue.",
-    icon: "🚀",
+      "High-quality narration for ads, explainer videos, e-learning, and more by professional voice artists.",
+    icon: "🎤",
     bgColor: "#3C40C6",
+    image: voice,
     moreInfo:
-      "We handle CI/CD pipelines, server configuration, and post-deployment monitoring.",
+      "Our team offers multiple languages, tones, and voice styles, ensuring your message connects emotionally and sounds professional in every context."
   },
+  {
+    title: "Social Media Design Packages",
+    description:
+      "Custom-designed posts, banners, and stories that make your brand shine across social platforms.",
+    icon: "📱",
+    bgColor: "#E84393",
+    image: social,
+    moreInfo:
+      "We provide monthly creative packages tailored to your brand, ensuring consistent and eye-catching social presence that drives engagement."
+  },
+  {
+    title: "Website Design",
+    description:
+      "Visually stunning, responsive, and user-friendly websites that elevate your online presence.",
+    icon: "💻",
+    bgColor: "#00B894",
+    image: web,
+    moreInfo:
+      "We combine UX strategy, modern UI design, and responsive development to create sites that not only look great but also convert visitors into customers."
+  }
 ];
 
 const ServicesCarousel = () => {
@@ -119,16 +149,19 @@ const ServicesCarousel = () => {
       </Swiper>
 
       {/* Reusable Popup for Service Details */}
-      <Popup
-        isOpen={!!selectedService}
-        onClose={() => setSelectedService(null)}
-        title={selectedService?.title}
-        description={selectedService?.moreInfo}
-        onEnquiry={() => {
-          setSelectedService(null);
-          setIsEnquiryOpen(true);
-        }}
-      />
+     <Popup
+  isOpen={!!selectedService}
+  onClose={() => setSelectedService(null)}
+  title={selectedService?.title}
+  alldescription={selectedService?.moreInfo}
+  shortDescription={selectedService?.description}
+  image={selectedService?.image}
+  onEnquiry={() => {
+    setSelectedService(null);
+    setIsEnquiryOpen(true);
+  }}
+/>
+
 
       {/* Enquiry Form Popup */}
       <EnquiryForm

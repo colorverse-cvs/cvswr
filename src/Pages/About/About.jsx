@@ -82,7 +82,7 @@ export const StorySection = () => (
       alt="Our Story"
       className="about-image img-fluid rounded shadow-lg"
     />
-    <span className="years-badge position-absolute">4+ Years of spreading joy</span>
+    <span className="years-badge position-absolute">7+ Years of spreading joy</span>
   </div>
 </div>
 

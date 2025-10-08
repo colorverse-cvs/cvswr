@@ -29,7 +29,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
     if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Please provide a valid email.";
     if (!/^[0-9]{10}$/.test(formData.mobile))
-      newErrors.mobile = "Please provide a valid mobile.";
+      newErrors.mobile = "Please provide a valid mobile number.";
     if (!formData.message.trim())
       newErrors.message = "Please enter a message.";
 
@@ -47,7 +47,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
         <button className="popup-close" onClick={onClose}>✖</button>
         <h2 className="popup-title">Enquiry Form</h2>
 
-        <form className="enquiry-form" onSubmit={handleSubmit}>
+        <form className="enquiry-form" onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <input
               type="text"
@@ -60,8 +60,9 @@ const EnquiryForm = ({ isOpen, onClose }) => {
           </div>
 
           <div className="form-group">
+            {/* 🔹 Use type="text" to disable native browser validation */}
             <input
-              type="email"
+              type="text"
               name="email"
               placeholder="Your Email"
               value={formData.email}
@@ -72,7 +73,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
 
           <div className="form-group">
             <input
-              type="tel"
+              type="text"
               name="mobile"
               placeholder="Your Mobile Number"
               value={formData.mobile}

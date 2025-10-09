@@ -1,4 +1,66 @@
-/* Intro Section */
+ .text-gradient {
+    background: linear-gradient(90deg, #2563eb, #9333ea, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-indigo { color: #4f46e5; }
+
+  .why-section {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .why-section:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .benefit-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fdf7ff;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .benefit-card .icon {
+    font-size: 2rem;
+    color: #4f46e5;
+  }
+
+  .enroll-box {
+    background: linear-gradient(to right, #ede9fe, #eef2ff);
+  }
+
+  .enroll-box h5 {
+    font-size: 1.25rem;
+  }
+
+  .enroll-box i {
+    color: #4f46e5;
+  }
+
+.course-section ul {
+  line-height: 1.7;
+}
+
+.course-section h6 {
+  color: #4b6ccd;
+}
+
+.contact-info {
+  font-weight: 600;
+  color: #5b4acc;
+  margin-top: 10px;
+}
+
+.why-section {
+  background: #f7f7ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
 .intro-section {
     padding: 100px 20px;
     background: linear-gradient(135deg, #f5f7fa, #e4e5f1);
@@ -46,7 +108,7 @@
 
 /* Subtle Faint Gradients */
 .intro-section {
-    padding: 45px 20px;
+    padding: 50px 20px;
     background: linear-gradient(135deg, #f5f7fa, #e4e5f1);
     color: #333;
 }
@@ -75,12 +137,12 @@
     min-height: 380px;
     /* background: rgba(255, 255, 255, 0.4); */
     border-radius: 20px;
-    padding: 30px;
+    padding: 35px;
 }
 
 .floating-img {
     width: -webkit-fill-available;
-    padding: 10px;
+    padding: 30px;
     border-radius: 100px;
 }
 
@@ -101,4 +163,16 @@
 .enquiry-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+  .course-section {
+    padding: 40px 15px;
+  }
+  .floating-img {
+    width: -webkit-fill-available;
+    padding: 5px;
+    border-radius: 50px;
+}
 }

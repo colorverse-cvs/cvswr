@@ -63,15 +63,17 @@ label {
 }
 
 .popup-close {
-  position: absolute;
-  top: -6px;
-  right: -5px;
-  background: none;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-  color: #6f00ff;
-  transition: transform 0.2s ease;
+    position: absolute;
+    top: 13px;
+    right: 6px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+    transition: color 0.2s ease;
+    opacity: 0.4;
 }
 
 .popup-close:hover {
@@ -168,8 +170,8 @@ textarea {
   }
 
   .popup-close {
-    top: 5px;
-    right: 5px;
+    top: 13px;
+    right: 6px;
     font-size: 22px;
   }
 

@@ -18,6 +18,13 @@ const EnquiryForm = ({ isOpen, onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" }); // clear error while typing
   };
+  // Close when clicking on overlay
+const handleOverlayClick = (e) => {
+  if (e.target.classList.contains("popup-overlay")) {
+    onClose();
+  }
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +49,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="popup-overlay">
+    <div className="popup-overlay" onClick={handleOverlayClick}>
       <div className="popup-container">
         <button className="popup-close" onClick={onClose}>✖</button>
         <h2 className="popup-title">Enquiry Form</h2>

@@ -64,7 +64,7 @@
 
 .perfect-control-section .illustration {
   max-width: 400px;
-  animation: float 5s ease-in-out infinite;
+  /* animation: float 5s ease-in-out infinite; */
 }
 
 @keyframes float {

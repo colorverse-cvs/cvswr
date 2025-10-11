@@ -8,30 +8,28 @@ const EnquiryForm = ({ isOpen, onClose }) => {
     mobile: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // clear error while typing
+    setErrors({ ...errors, [e.target.name]: "" });
   };
-  // Close when clicking on overlay
-const handleOverlayClick = (e) => {
-  if (e.target.classList.contains("popup-overlay")) {
-    onClose();
-  }
-};
 
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("popup-overlay")) {
+      onClose();
+    }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
     let newErrors = {};
-
     if (!formData.name.trim()) newErrors.name = "Please provide your name.";
     if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Please provide a valid email.";
@@ -43,8 +41,41 @@ const handleOverlayClick = (e) => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Enquiry Submitted:", formData);
-      onClose();
+      setLoading(true);
+
+      // ✅ Replace with your Web3Forms Access Key
+      const accessKey = "07aefbb6-0a8f-4e8f-9755-ecbb84776cf5";
+
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", accessKey);
+      formDataToSend.append("subject", "New Enquiry from Website");
+      formDataToSend.append("from_name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("mobile", formData.mobile);
+      formDataToSend.append("message", formData.message);
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formDataToSend,
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          alert("Message sent successfully!");
+          onClose();
+          setFormData({ name: "", email: "", mobile: "", message: "" });
+          setSubmitted(false);
+        } else {
+          alert("Failed to send message. Please try again later.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Something went wrong. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -67,9 +98,8 @@ const handleOverlayClick = (e) => {
           </div>
 
           <div className="form-group">
-            {/* 🔹 Use type="text" to disable native browser validation */}
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Your Email"
               value={formData.email}
@@ -100,8 +130,8 @@ const handleOverlayClick = (e) => {
             {submitted && errors.message && <p className="error-text">{errors.message}</p>}
           </div>
 
-          <button type="submit" className="btn-enquiry">
-            Send Message
+          <button type="submit" className="btn-enquiry" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

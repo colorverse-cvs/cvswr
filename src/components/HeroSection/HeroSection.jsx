@@ -1,25 +1,24 @@
-import { useEffect } from "react";
+import React, { useState } from "react";
 import "./HeroSection.css";
-import EnquiryButton from "../../UI_Component/button";
 
 const HeroSection = () => {
   const heroData = {
-    heading: "We Are Digital <br /> Creative Agency",
+    heading: "We Are Digital Creative Agency",
     subHeading: "Creative work, creative mind",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />Curabi sed metus id et viverra augue.",
-    contentBtn: "Get in Touch",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi sed metus id et viverra augue.",
     form: {
       title: "Start a Project",
       fields: [
-        { name: "name", type: "text", placeholder: "Your Name", required: true },
-        { name: "email", type: "email", placeholder: "Your Email", required: true },
+        { name: "name", type: "text", placeholder: "Your Name", required: true, label: "Name" },
+        { name: "email", type: "email", placeholder: "Your Email", required: true, label: "Email" },
         {
           name: "mobile",
           type: "tel",
           placeholder: "Your Mobile Number",
           required: true,
           pattern: "[0-9]{10}",
+          label: "Mobile Number",
         },
       ],
       projectCategory: {
@@ -32,44 +31,56 @@ const HeroSection = () => {
           "Mobile App",
           "E-Commerce",
         ],
+        label: "Project Category",
       },
-      locationField: {
-        name: "location",
-        placeholder: "Your Location",
-        required: true,
-      },
-      messageField: {
-        name: "message",
-        placeholder: "Your Message",
-        required: true,
-        rows: 2,
-      },
+      locationField: { name: "location", placeholder: "Your Location", required: true, label: "Location" },
+      messageField: { name: "message", placeholder: "Your Message", required: true, rows: 2, label: "Message" },
       submitBtn: "Let’s Talk",
     },
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    console.log("Form submitted:", data);
-  };
+  const courseOptions = [
+    "Graphic Design",
+    "Video Editing",
+    "Autodesk Maya",
+    "CG & VFX Compositing",
+  ];
 
-  useEffect(() => {
-    const forms = document.querySelectorAll(".needs-validation");
-    Array.from(forms).forEach((form) => {
-      form.addEventListener(
-        "submit",
-        (event) => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add("was-validated");
-        },
-        false
-      );
-    });
-  }, []);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "07aefbb6-0a8f-4e8f-9755-ecbb84776cf5");
+    formData.append("subject", "New Enquiry from Hero Section");
+    formData.append(
+      "from_name",
+      formData.get("name") || formData.get("studentName")
+    );
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Form submitted successfully!");
+        e.target.reset();
+      } else {
+        alert("Form submission failed. Please try again.");
+        console.error(result);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong while submitting the form.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="single-hero-section">
@@ -79,36 +90,30 @@ const HeroSection = () => {
             {/* Left Content */}
             <div className="col-md-6 text-white text-center text-md-start mb-4 mb-md-0">
               <p className="contain-p">{heroData.subHeading}</p>
-              <h1
-                className="fw-bold"
-                dangerouslySetInnerHTML={{ __html: heroData.heading }}
-              />
-              <p dangerouslySetInnerHTML={{ __html: heroData.description }} />
+              <h1 className="fw-bold">{heroData.heading}</h1>
+              <p>{heroData.description}</p>
+
               <div className="hero-btns-wrapper text-center text-md-start mt-3">
-  <p className="btn-info-text  fw-semibold">
-    Explore Our Creative Work Samples:
-  </p>
-
-  <div className="hero-btns d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
-    <a
-      href="COLORVERSE_AI.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn-enquiry"
-    >
-      AI Graphic
-    </a>
-    <a
-      href="STUDIO_GRAPHICS.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn-enquiry"
-    >
-      Social Media
-    </a>
-  </div>
-</div>
-
+                <p className="btn-info-text fw-semibold">Explore Our Creative Work Samples:</p>
+                <div className="hero-btns d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+                  <a
+                    href="COLORVERSE_AI.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-enquiry"
+                  >
+                    AI Graphic
+                  </a>
+                  <a
+                    href="STUDIO_GRAPHICS.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-enquiry"
+                  >
+                    Social Media
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Right Form Tabs */}
@@ -146,112 +151,63 @@ const HeroSection = () => {
                   <div className="tab-pane fade show active" id="project" role="tabpanel">
                     <div className="form-card p-3">
                       <h4 className="mb-3">{heroData.form.title}</h4>
-                      <form
-                        className="row g-2 needs-validation"
-                        noValidate
-                        onSubmit={handleSubmit}
-                      >
-                        {heroData.form.fields.map((field, index) => {
-                          const colClass =
-                            field.name === "email" || field.name === "mobile"
-                              ? "col-md-6"
-                              : "col-12";
-
-                          return (
-                            <div className={colClass} key={index}>
-                              <label className="form-label" htmlFor={field.name}>
-                                {field.placeholder}
-                              </label>
-                              <input
-                                type={field.type}
-                                name={field.name}
-                                id={field.name}
-                                placeholder={field.placeholder}
-                                required={field.required}
-                                pattern={field.pattern || undefined}
-                                className="form-control"
-                              />
-                              {/* <div className="valid-feedback">Looks good!</div> */}
-                              <div className="invalid-feedback">
-                                Please provide a valid {field.name}.
-                              </div>
-                            </div>
-                          );
-                        })}
-
-                        {/* Location and Project Category Side by Side */}
-                        <div className="col-md-6">
-                          <label
-                            className="form-label"
-                            htmlFor={heroData.form.locationField.name}
+                      <form onSubmit={handleSubmit} className="row g-2">
+                        {heroData.form.fields.map((field, index) => (
+                          <div
+                            key={index}
+                            className={field.name === "email" || field.name === "mobile" ? "col-md-6" : "col-12"}
                           >
-                            {heroData.form.locationField.placeholder}
-                          </label>
+                            <label className="form-label">{field.label}</label>
+                            <input
+                              type={field.type}
+                              name={field.name}
+                              placeholder={field.placeholder}
+                              required={field.required}
+                              pattern={field.pattern || undefined}
+                              className="form-control"
+                            />
+                          </div>
+                        ))}
+
+                        <div className="col-md-6">
+                          <label className="form-label">{heroData.form.locationField.label}</label>
                           <input
                             type="text"
                             name={heroData.form.locationField.name}
-                            id={heroData.form.locationField.name}
                             placeholder={heroData.form.locationField.placeholder}
-                            required={heroData.form.locationField.required}
+                            required
                             className="form-control"
                           />
-                          <div className="invalid-feedback">
-                            Please provide your location.
-                          </div>
                         </div>
 
                         <div className="col-md-6">
-                          <label
-                            className="form-label"
-                            htmlFor={heroData.form.projectCategory.name}
-                          >
-                            {heroData.form.projectCategory.placeholder}
-                          </label>
+                          <label className="form-label">{heroData.form.projectCategory.label}</label>
                           <select
                             name={heroData.form.projectCategory.name}
-                            id={heroData.form.projectCategory.name}
                             required
                             className="form-select"
                           >
-                            <option value="">
-                              {heroData.form.projectCategory.placeholder}
-                            </option>
-                            {heroData.form.projectCategory.options.map((option, i) => (
-                              <option key={i} value={option}>
-                                {option}
-                              </option>
+                            <option value="">{heroData.form.projectCategory.placeholder}</option>
+                            {heroData.form.projectCategory.options.map((opt, i) => (
+                              <option key={i} value={opt}>{opt}</option>
                             ))}
                           </select>
-                          <div className="invalid-feedback">
-                            Please select a project category.
-                          </div>
                         </div>
 
-                        {/* Message */}
                         <div className="col-12">
-                          <label
-                            className="form-label"
-                            htmlFor={heroData.form.messageField.name}
-                          >
-                            {heroData.form.messageField.placeholder}
-                          </label>
+                          <label className="form-label">{heroData.form.messageField.label}</label>
                           <textarea
                             name={heroData.form.messageField.name}
-                            id={heroData.form.messageField.name}
                             placeholder={heroData.form.messageField.placeholder}
-                            required={heroData.form.messageField.required}
+                            required
                             rows={heroData.form.messageField.rows}
                             className="form-control"
-                          ></textarea>
-                          <div className="invalid-feedback">
-                            Please enter a message.
-                          </div>
+                          />
                         </div>
 
-                        {/* Submit Button */}
                         <div className="col-12">
-                          <button type="submit" className="btn-enquiry  w-50 mt-2">
-                            {heroData.form.submitBtn}
+                          <button type="submit" className="btn-enquiry w-50 mt-2" disabled={loading}>
+                            {loading ? "Sending..." : heroData.form.submitBtn}
                           </button>
                         </div>
                       </form>
@@ -262,126 +218,80 @@ const HeroSection = () => {
                   <div className="tab-pane fade" id="courses" role="tabpanel">
                     <div className="form-card p-3">
                       <h4 className="mb-3">Courses Enquiry</h4>
-                      <form
-                        className="row g-2 needs-validation"
-                        noValidate
-                        onSubmit={handleSubmit}
-                      >
-                        {/* Courses form fields */}
+                      <form onSubmit={handleSubmit} className="row g-2">
                         <div className="col-12">
-                          <label htmlFor="studentName" className="form-label">
-                            Student Name
-                          </label>
+                          <label className="form-label">Student Name</label>
                           <input
                             type="text"
                             name="studentName"
-                            id="studentName"
                             placeholder="Student Name"
                             required
                             className="form-control"
                           />
-                          <div className="valid-feedback">Looks good!</div>
-                          <div className="invalid-feedback">
-                            Please provide your name.
-                          </div>
                         </div>
 
                         <div className="col-md-6">
-                          <label htmlFor="studentEmail" className="form-label">
-                            Email Address
-                          </label>
+                          <label className="form-label">Email Address</label>
                           <input
                             type="email"
                             name="studentEmail"
-                            id="studentEmail"
                             placeholder="Email Address"
                             required
                             className="form-control"
                           />
-                          <div className="valid-feedback">Looks good!</div>
-                          <div className="invalid-feedback">
-                            Please provide a valid email.
-                          </div>
                         </div>
 
                         <div className="col-md-6">
-                          <label htmlFor="studentMobile" className="form-label">
-                            Mobile Number
-                          </label>
+                          <label className="form-label">Mobile Number</label>
                           <input
                             type="tel"
                             name="studentMobile"
-                            id="studentMobile"
                             placeholder="Mobile Number"
                             pattern="[0-9]{10}"
                             required
                             className="form-control"
                           />
-                          <div className="valid-feedback">Looks good!</div>
-                          <div className="invalid-feedback">
-                            Please provide a 10-digit mobile number.
-                          </div>
                         </div>
 
                         <div className="col-6">
-                          <label htmlFor="studentLocation" className="form-label">
-                            Location
-                          </label>
+                          <label className="form-label">Location</label>
                           <input
                             type="text"
                             name="studentLocation"
-                            id="studentLocation"
                             placeholder="Your Location"
                             required
                             className="form-control"
                           />
-                          <div className="invalid-feedback">
-                            Please provide your location.
-                          </div>
                         </div>
 
                         <div className="col-6">
-                          <label htmlFor="course" className="form-label">
-                            Select Course
-                          </label>
+                          <label className="form-label">Select Course</label>
                           <select
                             name="course"
-                            id="course"
-                            className="form-select"
                             required
+                            className="form-select"
                           >
                             <option value="">Select Course</option>
-                            <option value="web">Web Development</option>
-                            <option value="design">UI/UX Design</option>
-                            <option value="marketing">Digital Marketing</option>
-                            <option value="app">Mobile App Development</option>
-                            <option value="data">Data Science</option>
+                            {courseOptions.map((opt, i) => (
+                              <option key={i} value={opt}>{opt}</option>
+                            ))}
                           </select>
-                          <div className="invalid-feedback">
-                            Please select a course.
-                          </div>
                         </div>
 
                         <div className="col-12">
-                          <label htmlFor="studentMessage" className="form-label">
-                            Message
-                          </label>
+                          <label className="form-label">Message</label>
                           <textarea
                             name="studentMessage"
-                            id="studentMessage"
                             placeholder="Your Message"
                             required
                             rows="2"
                             className="form-control"
-                          ></textarea>
-                          <div className="invalid-feedback">
-                            Please enter your message.
-                          </div>
+                          />
                         </div>
 
                         <div className="col-6">
-                          <button type="submit" className="btn-enquiry w-100 mt-2">
-                            Submit Enquiry
+                          <button type="submit" className="btn-enquiry w-100 mt-2" disabled={loading}>
+                            {loading ? "Sending..." : "Submit Enquiry"}
                           </button>
                         </div>
                       </form>

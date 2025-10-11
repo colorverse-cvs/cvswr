@@ -6,7 +6,7 @@
 
 .single-hero-section {
   min-height: 100vh;
-  background-image: url(../../assets/bg2.jpg);
+  background-image: url(../../assets/herobg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,19 +58,17 @@
   color: rgb(0, 0, 0);
 }
 
-.form-control,
-.form-select,
-textarea {
-  border-radius: 10px;
-  border: 2px solid #ffffff !important;
-  padding: 5px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #d19fe4;
+.form-control, .form-select, textarea {
+    border-radius: 10px;
+    border: 2px solid #8d8d8d !important;
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fefbe985;
 }
 .form-control {
     border-radius: 10px;
-    border: 2px solid #ffffff;
-    background: #a967a147 ;
+    border: 2px solid #8d8d8d !important;
+    background: #ffffff47 ;
 }   
 /* Buttons */
 .btn {

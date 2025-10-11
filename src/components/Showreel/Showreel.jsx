@@ -19,14 +19,41 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 
+import reel1 from "../../assets/RegulerReels/Suhani-Magic-With-Mortal-Edit.mp4";
+import reel2 from "../../assets/RegulerReels/Futurehome-Edit.mp4";
+import reel3 from "../../assets/RegulerReels/Sagar-Sir-Diet-Edit.mp4";
+import reel4 from "../../assets/RegulerReels/Suhani-Mera-Kharcha-dhar-Edit.mp4";
+import reel5 from "../../assets/RegulerReels/Kudige-Sir-Maclaren-Edit.mp4";
+import reel6 from "../../assets/RegulerReels/Dr.Shivani-Skincare-Edit.mp4";
+import reel7 from "../../assets/RegulerReels/Volkswagen-Ppf-Edit.mp4";
+import reel8 from "../../assets/RegulerReels/Wellness-Wave-Edit.mp4";
+import reel9 from "../../assets/RegulerReels/Rashi-Chaudhari-Paytm-Edit.mp4";
+import reel10 from "../../assets/RegulerReels/Rashi-Chaudhari-Zomunk-Edit.mp4";
+import reel11 from "../../assets/RegulerReels/Metrology-Law-India-Edit.mp4";
+import reel12 from "../../assets/RegulerReels/Lawsakhi-Digital-Arrest-Edit.mp4";
+import reel13 from "../../assets/RegulerReels/Ishita-Arun-Ganpati-Edit.mp4";
+import reel14 from "../../assets/RegulerReels/grv-jajk-wcx.mp4";
+
+
+
+
 export const reels = [
-  { id: 1, videoUrl: "https://video.wixstatic.com/video/61fec8_624e060ddeca413d9547a0dd15ee3a4e/1080p/mp4/file.mp4", username: "john_doe", caption: "Exploring the city! 🌆 #Travel", music: "City Vibes - DJ Mix" },
-  { id: 2, videoUrl: "https://video.wixstatic.com/video/61fec8_89d8b62469144162baa84953827d2e48/1080p/mp4/file.mp4", username: "nature_lover", caption: "Nature is so peaceful 🍃", music: "Calm Breeze - LoFi Beats" },
-  { id: 3, videoUrl: "https://video.wixstatic.com/video/61fec8_50b1558380cc4515801d872b61df8259/1080p/mp4/file.mp4", username: "tech_guy", caption: "Testing the new phone! 📱", music: "Techno Beats - DJ Pro" },
-  { id: 4, videoUrl: "https://video.wixstatic.com/video/61fec8_4adcfc24a72f4f2c9f873fb834a051c1/1080p/mp4/file.mp4", username: "foodie", caption: "Delicious dinner tonight! 🍲", music: "Chill Vibes - LoFi" },
-  { id: 5, videoUrl: "https://video.wixstatic.com/video/61fec8_4adcfc24a72f4f2c9f873fb834a051c1/1080p/mp4/file.mp4", username: "gamer", caption: "Victory Royale! 🎮", music: "Epic Soundtrack" },
-  { id: 6, videoUrl: "https://video.wixstatic.com/video/61fec8_50b1558380cc4515801d872b61df8259/1080p/mp4/file.mp4", username: "traveler", caption: "On the beach 🏖️", music: "Ocean Waves" },
-  { id: 7, videoUrl: "https://video.wixstatic.com/video/61fec8_89d8b62469144162baa84953827d2e48/1080p/mp4/file.mp4", username: "nature_lover", caption: "Nature is so peaceful 🍃", music: "Calm Breeze - LoFi Beats" },
+  { id: 1, videoUrl:reel1, username: "", caption: "", music: "" },
+  { id: 2, videoUrl: reel2, username: "", caption: "", music: "" },
+  { id: 3, videoUrl: reel3, username: "", caption: "", music: "" },
+  { id: 4, videoUrl: reel4, username: "", caption: "", music: "" },
+  { id: 5, videoUrl: reel5, username: "", caption: "", music: "" },
+  { id: 6, videoUrl: reel6, username: "", caption: "", music: "" },
+  { id: 7, videoUrl: reel7, username: "", caption: "", music: "" },
+  { id: 8, videoUrl: reel8, username: "", caption: "", music: "" },
+  { id: 9, videoUrl: reel9, username: "", caption: "", music: "" },
+  { id: 10, videoUrl: reel10, username: "", caption: "", music: "" },
+  { id: 11, videoUrl: reel11, username: "", caption: "", music: "" },
+  { id: 12, videoUrl: reel12, username: "", caption: "", music: "" },
+  { id: 13, videoUrl: reel13, username: "", caption: "", music: "" },
+  { id: 14, videoUrl: reel14, username: "", caption: "", music: "" },
+
+
 ];
 
 const Showreel = () => {
@@ -125,18 +152,28 @@ const Showreel = () => {
                         <div className="speaker"></div>
                       </div>
 
-                      <video
-                        ref={(el) => (videoRefs.current[index] = el)}
-                        className="reel-video"
-                        muted
-                        onMouseEnter={() => videoRefs.current[index]?.play()}
-                        onMouseLeave={() => {
-                          videoRefs.current[index].pause();
-                          videoRefs.current[index].currentTime = 0;
-                        }}
-                      >
-                        <source src={reel.videoUrl} type="video/mp4" />
-                      </video>
+                     <video
+  ref={(el) => (videoRefs.current[index] = el)}
+  className="reel-video"
+  muted
+  onMouseEnter={() => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.muted = false; // 🔊 Unmute on hover
+      video.play();
+    }
+  }}
+  onMouseLeave={() => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.muted = true; // 🔇 Mute again when mouse leaves
+      video.pause();
+      video.currentTime = 0;
+    }
+  }}
+>
+  <source src={reel.videoUrl} type="video/mp4" />
+</video>
 
                       <div className="action-buttons">
                         <div className="icon-btn"><FaHeart /></div>
@@ -145,9 +182,9 @@ const Showreel = () => {
                       </div>
 
                       <div className="reel-info">
-                        <p className="username">@{reel.username}</p>
+                        <p className="username">{reel.username}</p>
                         <p className="caption">{reel.caption}</p>
-                        <p className="music">🎵 {reel.music}</p>
+                        <p className="music">{reel.music}</p>
                       </div>
 
                       <div className="bottom-nav">

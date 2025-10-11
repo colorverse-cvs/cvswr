@@ -84,7 +84,31 @@ const HeroSection = () => {
                 dangerouslySetInnerHTML={{ __html: heroData.heading }}
               />
               <p dangerouslySetInnerHTML={{ __html: heroData.description }} />
-              <EnquiryButton label="Get In Touch" />
+              <div className="hero-btns-wrapper text-center text-md-start mt-3">
+  <p className="btn-info-text  fw-semibold">
+    Explore Our Creative Work Samples:
+  </p>
+
+  <div className="hero-btns d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+    <a
+      href="COLORVERSE_AI.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-enquiry"
+    >
+      AI Graphic
+    </a>
+    <a
+      href="STUDIO_GRAPHICS.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-enquiry"
+    >
+      Social Media
+    </a>
+  </div>
+</div>
+
             </div>
 
             {/* Right Form Tabs */}

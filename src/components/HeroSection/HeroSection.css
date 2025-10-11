@@ -1,4 +1,9 @@
-/* Hero Section */
+.btn-info-text {
+  font-size: 1.1rem;
+  padding-bottom:10px !important;
+  letter-spacing: 0.5px !important;
+}
+
 .single-hero-section {
   min-height: 100vh;
   background-image: url(../../assets/bg2.jpg);
@@ -29,7 +34,7 @@
 .overlay p {
   font-size: 1.2rem;
   color: #161616bd;
-  padding: 30px 0;
+  padding: 10px 0;
 }
 
 .contain-p {

@@ -102,22 +102,29 @@ const Showreels = () => {
                     <div className="speaker"></div>
                   </div>
 
-                  <video
-                    ref={(el) => (videoRefs.current[index] = el)}
-                    controls
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="reel-video"
-                    onMouseEnter={() => videoRefs.current[index]?.play()}
-                    onMouseLeave={() => {
-                      videoRefs.current[index]?.pause();
-                      videoRefs.current[index].currentTime = 0;
-                    }}
-                  >
-                    <source src={reel.videoUrl} type="video/mp4" />
-                  </video>
+                 <video
+  ref={(el) => (videoRefs.current[index] = el)}
+  className="reel-video"
+  muted
+  onMouseEnter={() => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.muted = false; // 🔊 Unmute on hover
+      video.play();
+    }
+  }}
+  onMouseLeave={() => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.muted = true; // 🔇 Mute again when mouse leaves
+      video.pause();
+      video.currentTime = 0;
+    }
+  }}
+>
+  <source src={reel.videoUrl} type="video/mp4" />
+</video>
+
 
                   <div className="action-buttons">
                     <div className="icon-btn"><FaHeart /></div>
@@ -126,7 +133,7 @@ const Showreels = () => {
                   </div>
 
                   <div className="reel-info">
-                    <p className="username">@{reel.username}</p>
+                    <p className="username">{reel.username}</p>
                     <p className="caption">{reel.caption}</p>
                     <p className="music">🎵 {reel.music}</p>
                   </div>

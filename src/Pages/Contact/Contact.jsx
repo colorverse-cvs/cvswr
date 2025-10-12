@@ -1,80 +1,129 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css";
-import { FaPhone, FaFax, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "07aefbb6-0a8f-4e8f-9755-ecbb84776cf5");
+    formData.append("subject", "New Contact Form Submission");
+    formData.append("from_name", formData.get("fullName"));
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Form submitted successfully!");
+        e.target.reset();
+      } else {
+        alert("Form submission failed. Please try again.");
+        console.error(result);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong while submitting the form.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="contact-section">
       <div className="container py-5">
         {/* Heading */}
-
+        
 
         {/* Form & Map */}
         <div className="row align-items-center form-map-wrapper">
+          
           {/* Form Column */}
           <div className="col-lg-6 mb-4">
-            <form className="form-box">
-                      <div className="heading mb-4">
+            <div className="heading ms-5">
           <h1>
-            Get in <span className="red ">Touch</span>
+            Get in <span className="red">Touch</span>
           </h1>
           <p className="subtext">
             Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo
             molestie vel, ornare non id blandit netus.
           </p>
         </div>
-             <div className="mb-3">
-  <label>Full Name</label>
-  <input
-    type="text"
-    className="form-control contact-input"
-    placeholder="Name *"
-    required
-  />
-</div>
+            <form className="form-box" onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  className="form-control contact-input"
+                  placeholder="Name *"
+                  required
+                />
+              </div>
 
-<div className="mb-3">
-  <label>Email</label>
-  <input
-    type="email"
-    className="form-control contact-input"
-    placeholder="Email *"
-    required
-  />
-</div>
+              <div className="mb-3">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control contact-input"
+                  placeholder="Email *"
+                  required
+                />
+              </div>
 
-<div className="mb-3">
-  <label>Phone Number</label>
-  <input
-    type="tel"
-    className="form-control contact-input"
-    placeholder="Phone number *"
-    required
-  />
-</div>
+              <div className="mb-3">
+                <label>Phone Number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="form-control contact-input"
+                  placeholder="Phone number *"
+                  required
+                />
+              </div>
 
-<div className="mb-3">
-  <label>Select Your Enquiry Type</label>
-  <select className="form-select contact-input" required>
-    <option value="" disabled selected>
-      Select Your Enquiry Type
-    </option>
-    <option value="project">Project</option>
-    <option value="courses">Courses</option>
-  </select>
-</div>
+              <div className="mb-3">
+                <label>Select Your Enquiry Type</label>
+                <select
+                  name="enquiryType"
+                  className="form-select contact-input"
+                  required
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Select Your Enquiry Type
+                  </option>
+                  <option value="project">Project</option>
+                  <option value="courses">Courses</option>
+                </select>
+              </div>
 
-<div className="mb-3">
-  <label>Message</label>
-  <textarea
-    className="form-control contact-input"
-    rows="3"
-    placeholder="Please tell us your requirement so we can get the right person to contact you."
-    required
-  ></textarea>
-</div>
-              <button type="submit" className="btn-enquiry mt-4 w-50">
-                SUBMIT
+              <div className="mb-3">
+                <label>Message</label>
+                <textarea
+                  name="message"
+                  className="form-control contact-input"
+                  rows="3"
+                  placeholder="Please tell us your requirement so we can get the right person to contact you."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="btn-enquiry mt-4 w-50"
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "SUBMIT"}
               </button>
             </form>
           </div>
@@ -93,24 +142,39 @@ const Contact = () => {
         </div>
 
         {/* Bottom Contact Info */}
-       <section className="container my-5 ">
-        <div className="row g-4 text-center contact-card-main">
-          {[
-            { icon: <FaPhone />, title: "Phone", text: "+918605807047", sub: "Available 24/7" },
-            { icon: <FaEnvelope />, title: "Email", text: "COLORVERSESTUDIO25@GMAIL.COM", sub: "We reply within 24 hours" },
-            { icon: <FaMapMarkerAlt />, title: "Address", text: "Kanakia Wallstreet, Andheri East", sub: "Visit our Office" }
-          ].map((item, i) => (
-            <div className="col-md-4" key={i}>
-              <div className="contact-card  p-4 h-100 animate-up">
-                <div className="contact-icon-bubble">{item.icon}</div>
-                <h5 className="mt-3">{item.title}</h5>
-                <p>{item.text}</p>
-                <small>{item.sub}</small>
+        <section className="container my-5">
+          <div className="row g-4 text-center contact-card-main">
+            {[
+              {
+                icon: <FaPhone />,
+                title: "Phone",
+                text: "+918605807047",
+                sub: "Available 24/7",
+              },
+              {
+                icon: <FaEnvelope />,
+                title: "Email",
+                text: "COLORVERSESTUDIO25@GMAIL.COM",
+                sub: "We reply within 24 hours",
+              },
+              {
+                icon: <FaMapMarkerAlt />,
+                title: "Address",
+                text: "Kanakia Wallstreet, Andheri East",
+                sub: "Visit our Office",
+              },
+            ].map((item, i) => (
+              <div className="col-md-4" key={i}>
+                <div className="contact-card p-4 h-100 animate-up">
+                  <div className="contact-icon-bubble">{item.icon}</div>
+                  <h5 className="mt-3">{item.title}</h5>
+                  <p>{item.text}</p>
+                  <small>{item.sub}</small>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

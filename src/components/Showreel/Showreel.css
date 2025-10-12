@@ -4,12 +4,6 @@
   overflow: visible; /* important so top-outside buttons are visible */
 }
 
-/* hide default built-in buttons if they are present */
-.showreel-swiper .swiper-button-prev,
-.showreel-swiper .swiper-button-next {
-  /* display: none; */
-}
-
 /* custom nav buttons that sit OUTSIDE the slider (above it) */
 .showreel-custom-swiper-button{
   position: absolute;

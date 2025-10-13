@@ -1,35 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.PNG";
 import "./Header.css";
 import linkedin from "../../assets/linkedin.png";
 import instagram from "../../assets/instagram.png";
 import mail from "../../assets/mail.png";
-import WhatsApp from "../../assets/WhatsApp.webp"
-
-
+import WhatsApp from "../../assets/WhatsApp.webp";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
+  // ✅ Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location.pathname]);
+
+  // ✅ Handle header background on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
 
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
 
   return (
     <header className={`custom-header container ${scrolled ? "scrolled" : ""}`}>
       <div className="header-bg"></div>
 
       <div className="header-left">
-        <a href="/"><img src={logo} alt="Logo" className="header-logo" /></a>
+        <a href="/">
+          <img src={logo} alt="Logo" className="header-logo" />
+        </a>
       </div>
 
       {/* Hamburger icon */}
@@ -55,27 +60,17 @@ function Header() {
 
       <div className="header-right">
         <a href="https://instagram.com" target="_blank" rel="noreferrer">
-          <img className="icons" src={WhatsApp} alt="" />
+          <img className="icons" src={WhatsApp} alt="WhatsApp" />
         </a>
         <a href="mailto:someone@example.com" target="_blank" rel="noreferrer">
-          <img className="icons" src={mail} alt="" />
+          <img className="icons" src={mail} alt="Mail" />
         </a>
-
-        <a
-          href="https://wa.me/1234567890"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className="icons" src={instagram} alt="" />
+        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <img className="icons" src={instagram} alt="Instagram" />
         </a>
-        <a
-          href="https://wa.me/1234567890"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className="icons" src={linkedin} alt="" />
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <img className="icons" src={linkedin} alt="LinkedIn" />
         </a>
-
       </div>
     </header>
   );

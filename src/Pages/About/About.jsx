@@ -57,9 +57,9 @@ export const StorySection = () => (
     <div className="container">
       <div className="row align-items-center g-5">
         <div className="col-md-6">
-          <h2 className="section-title gradient-text mb-4">Our Story</h2>
+          <h2 className="section-heading gradient-text mb-4">Our Story</h2>
           <p className="story-text">
-            The Colorverse was born from a simple belief: that the perfect creation
+            The <span  className="brand">Colorverse</span> was born from a simple belief: that the perfect creation
             has the power to inspire, connect, and leave a lasting impression.
           </p>
           <p className="story-text">
@@ -94,7 +94,7 @@ export const StorySection = () => (
 export const ValuesSection = () => (
   <section className="values-section py-5">
     <div className="container">
-      <h2 className="section-title text-center">Our Values</h2>
+      <h2 className="section-heading  text-center">Our Values</h2>
       <p className="text-center ">
         The principles that guide everything we do at The Colorverse
       </p>

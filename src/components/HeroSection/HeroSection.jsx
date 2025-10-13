@@ -6,7 +6,7 @@ const HeroSection = () => {
     heading: "We Are Digital Creative Agency",
     subHeading: "Creative work, creative mind",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabi sed metus id et viverra augue.",
+      "Bringing visions to life with creative 3D design, video, and branding solutions that inspire success.",
     form: {
       title: "Start a Project",
       fields: [
@@ -53,7 +53,7 @@ const HeroSection = () => {
     setLoading(true);
 
     const formData = new FormData(e.target);
-    formData.append("access_key", "07aefbb6-0a8f-4e8f-9755-ecbb84776cf5");
+    formData.append("access_key", "5c1732cb-766e-4768-9641-dc829f8be7bf");
     formData.append("subject", "New Enquiry from Hero Section");
     formData.append(
       "from_name",

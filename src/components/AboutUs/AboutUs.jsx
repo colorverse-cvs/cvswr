@@ -22,8 +22,8 @@ const AboutUs = () => {
 
   return (
     <section className="about-us container my-5">
-      <div className="text-center mb-5">
-        <small className="section-heading ">
+      <div className="text-center pt-4 mb-5">
+        <small className="section-heading">
           {aboutData.headingSmall}
         </small>
       </div>

@@ -44,7 +44,7 @@ const EnquiryForm = ({ isOpen, onClose }) => {
       setLoading(true);
 
       // ✅ Replace with your Web3Forms Access Key
-      const accessKey = "07aefbb6-0a8f-4e8f-9755-ecbb84776cf5";
+      const accessKey = "5c1732cb-766e-4768-9641-dc829f8be7bf";
 
       const formDataToSend = new FormData();
       formDataToSend.append("access_key", accessKey);

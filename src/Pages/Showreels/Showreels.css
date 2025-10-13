@@ -1,11 +1,13 @@
 .showreel-swiper-wrapper {
-  position: relative; /* make buttons relative to slider */
+  position: relative;
+  /* make buttons relative to slider */
 }
 
 /* Common button styles */
 .showreels-custom-button {
   position: absolute;
-  top: -50px; /* top of slider */
+  top: -50px;
+  /* top of slider */
   width: 35px;
   height: 35px;
   background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
@@ -18,29 +20,33 @@
   z-index: 20;
   font-size: 24px;
 }
+
 .showreels-custom-button svg {
   width: 34px;
   height: 34px;
   fill: #fff;
   /* ensure it’s visible */
 }
+
 /* Side by side top-right */
 .showreels-custom-prev {
-  right: 58px; /* left button */
+  right: 58px;
+  /* left button */
 }
 
 .showreels-custom-next {
-  right: 10px; /* right button */
+  right: 10px;
+  /* right button */
 }
 
 
 
 .swiper-pagination {
-    position: static;
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    margin-top: 25px;
+  position: static;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .perfect-control-section {
@@ -53,11 +59,11 @@
   padding: 4rem 2rem;
   max-width: 1100px;
   text-align: center;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px) saturate(180%);
   border-radius: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
   position: relative;
 }
@@ -68,8 +74,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .perfect-control-section .content {
@@ -85,7 +98,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textGradient 3s ease-in-out infinite alternate;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .perfect-control-section .content .subtitle {
@@ -114,28 +127,29 @@
     flex-direction: row;
     text-align: left;
   }
+
   .perfect-control-section .features {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 .perfect-control-section .features p {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: linear-gradient(145deg, #ffffff11, #f3f4f515);
-    padding: 1rem 1.2rem;
-    border-radius: 1rem;
-    box-shadow: -1px 1px 3px 3px rgba(37, 99, 235, 0.08);
-    font-size: 1rem;
-    color: #1f2937;
-    font-weight: 500;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(145deg, #ffffff11, #f3f4f515);
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  box-shadow: -1px 1px 3px 3px rgba(37, 99, 235, 0.08);
+  font-size: 1rem;
+  color: #1f2937;
+  font-weight: 500;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .perfect-control-section .features p:hover {
   transform: translateY(-6px) scale(1.05);
-     box-shadow: -1px 2px 3px 3px rgba(37, 99, 235, 0.08);
+  box-shadow: -1px 2px 3px 3px rgba(37, 99, 235, 0.08);
 
 }
 
@@ -158,6 +172,7 @@
   background: linear-gradient(135deg, #1d4ed8, #7e22ce, #db2777);
   box-shadow: 0 22px 40px rgba(147, 51, 234, 0.35);
 }
+
 .section-heading1 {
   text-align: center;
   margin: 60px 0 40px;
@@ -168,7 +183,8 @@
 .page-title {
   font-size: 2.8rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #6a11cb, #2575fc); /* matches header style */
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  /* matches header style */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
@@ -203,7 +219,8 @@
 
 /* Default (desktop/tablet) */
 .responsive-img {
-  max-width: 400px; /* or whatever you need */
+  max-width: 400px;
+  /* or whatever you need */
   height: auto;
 }
 
@@ -213,21 +230,49 @@
     width: 100%;
     height: auto;
   }
+
+  .perfect-control-section .content h2 {
+    font-size: 2.5rem;
+    /* Smaller font on mobile */
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
 }
 
 /* Subtle animation */
 @keyframes underlineSlide {
-  from { transform: scaleX(0.6); opacity: 0.7; }
-  to { transform: scaleX(1.1); opacity: 1; }
+  from {
+    transform: scaleX(0.6);
+    opacity: 0.7;
+  }
+
+  to {
+    transform: scaleX(1.1);
+    opacity: 1;
+  }
 }
 
 
 @keyframes textGradient {
-  from { background-position: 0%; }
-  to { background-position: 100%; }
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 100%;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

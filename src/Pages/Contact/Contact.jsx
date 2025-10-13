@@ -131,12 +131,7 @@ const Contact = () => {
           {/* Map Column */}
           <div className="col-lg-6 position-relative map-container">
             <div className="map-wrapper">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4403591369464!2d106.81666631431065!3d-6.204366495505867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d857c69387%3A0x3cc6cf4051e4e9ba!2sKebon%20Kacang%2C%20Central%20Jakarta!5e0!3m2!1sen!2sid!4v1660738993674!5m2!1sen!2sid"
-                allowFullScreen=""
-                loading="lazy"
-                title="Google Map"
-              ></iframe>
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8304287760716!2d72.85875187520635!3d19.115093582097547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9ce246611f1%3A0x3e0b82a825ccce33!2sKanakia%20Wall%20Street!5e0!3m2!1sen!2sin!4v1760381633664!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

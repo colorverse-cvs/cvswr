@@ -161,3 +161,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.story-section .brand {
+    color: #6c63ff;
+    font-weight: 600;
+}

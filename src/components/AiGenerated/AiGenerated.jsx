@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./AiGenerated.css";
 
-// ✅ Import local videos from assets
+// ✅ Import local videos
 import reel1 from "../../assets/AIREELS/Lucifer-Perfume -Ai.mp4";
 import reel2 from "../../assets/AIREELS/Balaji-Ganpati Festival-Ai.mp4";
 import reel3 from "../../assets/AIREELS/Lucifer-Car-Ai.mp4";
@@ -17,6 +17,8 @@ const AiGenerated = () => {
   const [userInteracted, setUserInteracted] = useState(false);
   const total = videos.length;
   const videoRefs = useRef([]);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   // 🔹 Handle carousel navigation
   const updateIndex = (newIndex) => {
@@ -26,7 +28,7 @@ const AiGenerated = () => {
     setTimeout(() => setIsAnimating(false), 800);
   };
 
-  // 🔹 Track when user interacts (enables audio)
+  // 🔹 Detect when user interacts (to unmute videos)
   useEffect(() => {
     const handleUserInteraction = () => setUserInteracted(true);
     window.addEventListener("click", handleUserInteraction, { once: true });
@@ -39,23 +41,32 @@ const AiGenerated = () => {
     };
   }, []);
 
-  // 🔹 Play/pause logic + handle sound
+  // 🔹 Observe if AiGenerated section is visible on screen
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 } // play only when 30% visible
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // 🔹 Play/pause based on visibility & currentIndex
   useEffect(() => {
     videoRefs.current.forEach((vid, i) => {
       if (!vid) return;
-
-      if (i === currentIndex) {
-        vid.currentTime = 0; // restart when active
+      if (isVisible && i === currentIndex) {
+        vid.currentTime = 0;
         vid.play().catch(() => {});
-        vid.muted = !userInteracted; // unmute if user interacted
+        vid.muted = !userInteracted;
       } else {
         vid.pause();
       }
     });
-  }, [currentIndex, userInteracted]);
+  }, [isVisible, currentIndex, userInteracted]);
 
   return (
-    <div className="ai-generated-container-v">
+    <div className="ai-generated-container-v" ref={sectionRef}>
       <div className="ai-generated-container">
         <div className="section-heading1">
           <h2 className="page-title">

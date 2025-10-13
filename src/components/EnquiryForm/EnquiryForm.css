@@ -104,6 +104,7 @@ label {
   outline: none;
   transition: border 0.3s, box-shadow 0.3s;
   background-color: white;
+  color: black;
 }
 
 .enquiry-form input:focus,

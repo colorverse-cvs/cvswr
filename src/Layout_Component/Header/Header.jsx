@@ -59,18 +59,29 @@ function Header() {
       </nav>
 
       <div className="header-right">
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/8605807047" target="_blank" rel="noreferrer">
           <img className="icons" src={WhatsApp} alt="WhatsApp" />
         </a>
-        <a href="mailto:someone@example.com" target="_blank" rel="noreferrer">
+        <a href="mailto:COLORVERSESTUDIO25@GMAIL.COM" target="_blank" rel="noreferrer">
           <img className="icons" src={mail} alt="Mail" />
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+        <a
+          href="https://instagram.com/colorverse_studio1"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img className="icons" src={instagram} alt="Instagram" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+
+        <a
+          href="https://www.linkedin.com/company/colorverse-studio/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img className="icons" src={linkedin} alt="LinkedIn" />
         </a>
+
+
       </div>
     </header>
   );

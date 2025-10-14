@@ -210,7 +210,10 @@ const enrollmentSteps = [
             </div>
           </div>
 
-          <EnquiryButton label="Enquire Now" className="mt-3" />
+   <div className="mt-3 text-start">
+  <EnquiryButton label="Enquire Now" />
+</div>
+
         </div>
 
         {/* Image */}

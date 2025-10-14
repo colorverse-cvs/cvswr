@@ -7,27 +7,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./Testimonial.css";
 
-import testimonial from "../../assets/testimonials.png";
+import testimonial from "../../assets/testimonials1.png";
 import testimonials1 from "../../assets/testimonials1.png";
-import testimonials2 from "../../assets/testimonials2.png";
-import defaultAvatar from "../../assets/testimonials.png";
+import testimonials2 from "../../assets/testimonials1.png";
+import defaultAvatar from "../../assets/testimonials1.png";
 
 const testimonials = [
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est ullamcorper mattis lacus eu, ornare imperdiet men sana in condimentum...",
-    name: "JAMES JOKOVIC",
+    text: "Delivered smart tech solutions that improved efficiency and collaboration across teams. A truly rewarding experience.",
+    name: "Suraj Sinkar",
     role: "IT CONSULTANT",
     image: testimonial,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est ullamcorper mattis lacus eu, ornare imperdiet men sana in condimentum...",
-    name: "SOPHIA SMITH",
+    text: "Great teamwork and focus helped us meet every project goal efficiently and on time.",
+    name: "Akash Jadhav",
     role: "PROJECT MANAGER",
     image: testimonials1,
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est ullamcorper mattis lacus eu, ornare imperdiet men sana in condimentum...",
-    name: "LIAM JOHNSON",
+    text: "Loved creating clean, user-friendly designs that truly enhance the digital experience for our clients.",
+    name: "Sarthak Butala",
     role: "UI/UX DESIGNER",
     image: testimonials2,
   },

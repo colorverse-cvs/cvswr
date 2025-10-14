@@ -38,7 +38,7 @@ import reel14 from "../../assets/RegulerReels/grv-jajk-wcx.mp4";
 
 
 export const reels = [
-  { id: 1, videoUrl:reel1, username: "", caption: "", music: "" },
+  { id: 1, videoUrl: reel1, username: "", caption: "", music: "" },
   { id: 2, videoUrl: reel2, username: "", caption: "", music: "" },
   { id: 3, videoUrl: reel3, username: "", caption: "", music: "" },
   { id: 4, videoUrl: reel4, username: "", caption: "", music: "" },
@@ -74,7 +74,7 @@ const Showreel = () => {
       if (swiper.navigation) {
         try {
           swiper.navigation.destroy();
-        } catch (e) {}
+        } catch (e) { }
       }
       swiper.navigation.init();
       swiper.navigation.update();
@@ -103,7 +103,7 @@ const Showreel = () => {
             <div className="d-flex justify-content-md-left">
               <button
                 className="btn-enquiry showreel-btn mt-3"
-                
+
                 onClick={() => navigate("/showreels")}
               >
                 See All
@@ -117,13 +117,13 @@ const Showreel = () => {
               {/* Custom buttons */}
               <button ref={prevRef} className="showreel-custom-swiper-button custom-prev">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-</svg>
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
               </button>
               <button ref={nextRef} className="showreel-custom-swiper-button custom-next">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
-</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                </svg>
               </button>
 
               <Swiper
@@ -152,28 +152,37 @@ const Showreel = () => {
                         <div className="speaker"></div>
                       </div>
 
-                     <video
-  ref={(el) => (videoRefs.current[index] = el)}
-  className="reel-video"
-  muted
-  onMouseEnter={() => {
-    const video = videoRefs.current[index];
-    if (video) {
-      video.muted = false; // 🔊 Unmute on hover
-      video.play();
-    }
-  }}
-  onMouseLeave={() => {
-    const video = videoRefs.current[index];
-    if (video) {
-      video.muted = true; // 🔇 Mute again when mouse leaves
-      video.pause();
-      video.currentTime = 0;
-    }
-  }}
->
-  <source src={reel.videoUrl} type="video/mp4" />
-</video>
+                      <video
+                        ref={(el) => (videoRefs.current[index] = el)}
+                        className="reel-video"
+                        muted
+                        onMouseEnter={() => {
+                          const video = videoRefs.current[index];
+                          if (video) {
+                            video.muted = false; // Unmute on hover
+                            video.play();
+                          }
+                          // Stop Swiper autoplay
+                          if (swiperRef.current && swiperRef.current.autoplay) {
+                            swiperRef.current.autoplay.stop();
+                          }
+                        }}
+                        onMouseLeave={() => {
+                          const video = videoRefs.current[index];
+                          if (video) {
+                            video.muted = true; // Mute again
+                            video.pause();
+                            video.currentTime = 0;
+                          }
+                          // Resume Swiper autoplay
+                          if (swiperRef.current && swiperRef.current.autoplay) {
+                            swiperRef.current.autoplay.start();
+                          }
+                        }}
+                      >
+                        <source src={reel.videoUrl} type="video/mp4" />
+                      </video>
+
 
                       <div className="action-buttons">
                         <div className="icon-btn"><FaHeart /></div>

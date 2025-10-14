@@ -32,6 +32,8 @@ const Showreels = () => {
   const videoRefs = useRef([]);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+const swiperRef = useRef(null);
+
 
   // ✅ State for Enquiry Form
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
@@ -74,6 +76,7 @@ const Showreels = () => {
           </div>
 
           <Swiper
+           onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
@@ -102,23 +105,30 @@ const Showreels = () => {
                     <div className="speaker"></div>
                   </div>
 
-                 <video
+
+<video
   ref={(el) => (videoRefs.current[index] = el)}
   className="reel-video"
   muted
   onMouseEnter={() => {
     const video = videoRefs.current[index];
     if (video) {
-      video.muted = false; // 🔊 Unmute on hover
+      video.muted = false;
       video.play();
+    }
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.stop();
     }
   }}
   onMouseLeave={() => {
     const video = videoRefs.current[index];
     if (video) {
-      video.muted = true; // 🔇 Mute again when mouse leaves
+      video.muted = true;
       video.pause();
       video.currentTime = 0;
+    }
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.start();
     }
   }}
 >

@@ -73,22 +73,23 @@ const Footer = () => {
           {/* Follow Us */}
           <div className="col-12 col-md-2">
             <h6 className="fw-bold footer-heading">Follow Us</h6>
-            <div className="d-flex gap-3">
-              {footerData.socialLinks.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={item.icon}
-                    alt={item.platform}
-                    style={{ width: "28px", height: "28px" }}
-                  />
-                </a>
-              ))}
-            </div>
+            <div className="d-flex gap-3 justify-content-center justify-content-md-start">
+  {footerData.socialLinks.map((item, index) => (
+    <a
+      key={index}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src={item.icon}
+        alt={item.platform}
+        style={{ width: "32px", height: "32px" }}
+      />
+    </a>
+  ))}
+</div>
+
           </div>
 
         </div>

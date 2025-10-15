@@ -276,3 +276,28 @@
     transform: translateY(0);
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .perfect-control-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .perfect-control-section .features {
+    grid-template-columns: 1fr; 
+  }
+
+  .perfect-control-section .illustration {
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  .perfect-control-section .content h2 {
+    font-size: 2.4rem;
+  }
+
+  .perfect-control-section .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

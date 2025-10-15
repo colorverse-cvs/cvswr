@@ -18,15 +18,15 @@ const Footer = () => {
       "Bringing visions to life with creative 3D design, video, and branding solutions that inspire success.",
     quickLinks: [
       { name: "Home", url: "/" },
-      { name: "Services", url: "/services" },
-      { name: "Projects", url: "/projects" },
+      { name: "Services", url: "/digital" },
+      { name: "Showreels", url: "/showreels" },
       { name: "Contact", url: "/contact" },
     ],
     socialLinks: [
       { platform: "linkedin", url: "https://www.linkedin.com/company/colorverse-studio/", icon: linkedin },
       { platform: "instagram", url: "https://instagram.com/colorverse_studio1", icon: instagram },
       { platform: "mail", url: "mailto:COLORVERSESTUDIO25@GMAIL.COM", icon: mail },
-      { platform: "whatsapp", url: "https://wa.me/8605807047", icon: WhatsApp },
+      { platform: "whatsapp", url: "https://wa.me/918605807047", icon: WhatsApp },
     ],
   };
 
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
 
           {/* Follow Us */}
-          <div className="col-12 col-md-2">
+          <div className="col-12  col-md-2">
             <h6 className="fw-bold footer-heading">Follow Us</h6>
             <div className="d-flex gap-3 justify-content-center justify-content-md-start">
   {footerData.socialLinks.map((item, index) => (

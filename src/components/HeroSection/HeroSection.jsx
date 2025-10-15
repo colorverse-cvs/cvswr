@@ -289,7 +289,7 @@ const HeroSection = () => {
                           />
                         </div>
 
-                        <div className="col-md-6">
+                        <div className="col-lg-6">
                           <button type="submit" className="btn-enquiry w-100 mt-2" disabled={loading}>
                             {loading ? "Sending..." : "Submit Enquiry"}
                           </button>

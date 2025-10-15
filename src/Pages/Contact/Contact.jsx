@@ -159,7 +159,7 @@ const Contact = () => {
                 sub: "Visit our Office",
               },
             ].map((item, i) => (
-              <div className="col-md-4" key={i}>
+              <div className="col-lg-4" key={i}>
                 <div className="contact-card p-4 h-100 animate-up">
                   <div className="contact-icon-bubble">{item.icon}</div>
                   <h5 className="mt-3">{item.title}</h5>

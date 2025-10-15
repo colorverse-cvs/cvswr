@@ -59,7 +59,7 @@ function Header() {
       </nav>
 
       <div className="header-right">
-        <a href="https://wa.me/8605807047" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/918605807047" target="_blank" rel="noreferrer">
           <img className="icons" src={WhatsApp} alt="WhatsApp" />
         </a>
         <a href="mailto:COLORVERSESTUDIO25@GMAIL.COM" target="_blank" rel="noreferrer">

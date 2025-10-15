@@ -87,7 +87,7 @@ const Showreel = () => {
       <div className="container my-5">
         <div className="row align-items-center">
           {/* Left Section */}
-          <div className="col-12 col-md-4 d-flex flex-column justify-content-center text-center text-md-start mb-4 mb-md-0 agency-left">
+          <div className="col-12 col-lg-4 d-flex flex-column justify-content-center text-center text-md-start mb-4 mb-md-0 agency-left">
             <h3 className="agency-title">
               <span className="highlight">Creative Reels</span> That Inspire
             </h3>
@@ -112,7 +112,7 @@ const Showreel = () => {
           </div>
 
           {/* Right Section */}
-          <div className="col-12 col-md-8" style={{ overflow: "visible" }}>
+          <div className="col-12 col-lg-8" style={{ overflow: "visible" }}>
             <div className="showreel-swiper-wrapper">
               {/* Custom buttons */}
               <button ref={prevRef} className="showreel-custom-swiper-button custom-prev">
@@ -138,8 +138,8 @@ const Showreel = () => {
                 className="showreel-swiper"
                 breakpoints={{
                   0: { slidesPerView: 1 },
-                  425: { slidesPerView: 2 },
-                  768: { slidesPerView: 2 },
+                  425: { slidesPerView: 1 },
+                  768: { slidesPerView: 3 },
                   992: { slidesPerView: 3 },
                   1200: { slidesPerView: 4 },
                 }}

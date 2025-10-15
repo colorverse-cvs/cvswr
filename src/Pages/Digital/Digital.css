@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column; 
   justify-content: space-between; 
-  flex: 1 1 calc(33.333% - 20px);
+  flex: 1 1 calc(54.333% - 20px);
   max-width: 350px;
   background: linear-gradient(135deg, #f3f0ff, #fff0ff);
   color: #110069;

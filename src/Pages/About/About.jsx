@@ -58,20 +58,17 @@ export const StorySection = () => (
       <div className="row align-items-center g-5">
         <div className="col-md-6">
           <h2 className="section-heading gradient-text mb-4">Our Story</h2>
-          <p className="story-text">
-            The <span  className="brand">Colorverse</span> was born from a simple belief: that the perfect creation
-            has the power to inspire, connect, and leave a lasting impression.
+          
+          <p className="story-text">Founded in 2020 by Akash Kailas Shinde, <span  className="brand">Colorverse</span> Studio was born from a vision to turn creativity into impact. What began as a dream has grown into a powerhouse of design, storytelling, and digital innovation.
+            <br />
+            With Akash’s experience as a VFX artist on major Bollywood films like Salaar, KGF, Chhava, Yudhra, Maidaan, and many more, Colorverse brings cinematic excellence and artistic precision into every project.
+            <br />
+            Today, Colorverse Studio is a one-stop creative universe — offering expert services in website designing, video editing, graphic design, branding, and digital marketing, helping brands shine across every platform.
+<br />
+Through Colorverse Academy, we’re nurturing the next generation of creators with hands-on training in Photoshop, Illustrator, Video Editing, and VFX, empowering talent to craft their own creative galaxies.
           </p>
           <p className="story-text">
-            Founded in 2020 by Ishita Sharma, The Colorverse started as a small
-            collection of handpicked items that caught her eye during travels
-            around the world. What began as a passion project has grown into a
-            curated destination for unique and meaningful creations.
-          </p>
-          <p className="story-text">
-            Today, we collaborate with artisans and creators globally to bring you
-            a collection that combines traditional craftsmanship with contemporary
-            design.
+           At Colorverse Studio, creativity isn’t just what we do — it’s the universe we live in
           </p>
         </div>
 

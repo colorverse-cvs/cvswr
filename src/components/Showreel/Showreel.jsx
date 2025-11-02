@@ -9,8 +9,6 @@ import {
   FaPlusSquare,
   FaVideo,
   FaUser,
-  FaChevronLeft,
-  FaChevronRight
 } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -19,47 +17,31 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 
-import reel1 from "../../assets/RegulerReels/Suhani-Magic-With-Mortal-Edit.mp4";
-import reel2 from "../../assets/RegulerReels/Futurehome-Edit.mp4";
-import reel3 from "../../assets/RegulerReels/Sagar-Sir-Diet-Edit.mp4";
-import reel4 from "../../assets/RegulerReels/Suhani-Mera-Kharcha-dhar-Edit.mp4";
-import reel5 from "../../assets/RegulerReels/Kudige-Sir-Maclaren-Edit.mp4";
-import reel6 from "../../assets/RegulerReels/Dr.Shivani-Skincare-Edit.mp4";
-import reel7 from "../../assets/RegulerReels/Volkswagen-Ppf-Edit.mp4";
-import reel8 from "../../assets/RegulerReels/Wellness-Wave-Edit.mp4";
-import reel9 from "../../assets/RegulerReels/Rashi-Chaudhari-Paytm-Edit.mp4";
-import reel10 from "../../assets/RegulerReels/Rashi-Chaudhari-Zomunk-Edit.mp4";
-import reel11 from "../../assets/RegulerReels/Metrology-Law-India-Edit.mp4";
-import reel12 from "../../assets/RegulerReels/Lawsakhi-Digital-Arrest-Edit.mp4";
-import reel13 from "../../assets/RegulerReels/Ishita-Arun-Ganpati-Edit.mp4";
-import reel14 from "../../assets/RegulerReels/grv-jajk-wcx.mp4";
-
-
-
-
+// ✅ YouTube Reels
 export const reels = [
-  { id: 1, videoUrl: reel1, username: "", caption: "", music: "" },
-  { id: 2, videoUrl: reel2, username: "", caption: "", music: "" },
-  { id: 3, videoUrl: reel3, username: "", caption: "", music: "" },
-  { id: 4, videoUrl: reel4, username: "", caption: "", music: "" },
-  { id: 5, videoUrl: reel5, username: "", caption: "", music: "" },
-  { id: 6, videoUrl: reel6, username: "", caption: "", music: "" },
-  { id: 7, videoUrl: reel7, username: "", caption: "", music: "" },
-  { id: 8, videoUrl: reel8, username: "", caption: "", music: "" },
-  { id: 9, videoUrl: reel9, username: "", caption: "", music: "" },
-  { id: 10, videoUrl: reel10, username: "", caption: "", music: "" },
-  { id: 11, videoUrl: reel11, username: "", caption: "", music: "" },
-  { id: 12, videoUrl: reel12, username: "", caption: "", music: "" },
-  { id: 13, videoUrl: reel13, username: "", caption: "", music: "" },
-  { id: 14, videoUrl: reel14, username: "", caption: "", music: "" },
+  { id: 1, videoUrl: "https://www.youtube.com/embed/NjbvtPvckes" },
+  { id: 2, videoUrl: "https://www.youtube.com/embed/O9AUZd5A7LA" },
+  { id: 3, videoUrl: "https://www.youtube.com/embed/3v6ZQe1epE0" },
+  { id: 4, videoUrl: "https://www.youtube.com/embed/01gEgJ5Dc1w" },
+  { id: 5, videoUrl: "https://www.youtube.com/embed/cwWk7_9zdlg" },
+  { id: 6, videoUrl: "https://www.youtube.com/embed/j_p6InjwQN4" },
+  { id: 7, videoUrl: "https://www.youtube.com/embed/vUvVgNAq4ko" },
+  { id: 8, videoUrl: "https://www.youtube.com/embed/CCOKiSpPOfQ" },
+  { id: 9, videoUrl: "https://www.youtube.com/embed/7frwpPVoThI" },
+  { id: 10, videoUrl: "https://www.youtube.com/embed/CMN6jE0sYgg" },
+  { id: 11, videoUrl: "https://www.youtube.com/embed/vTsHN7WPD-0" },
+  { id: 12, videoUrl: "https://www.youtube.com/embed/6ytsbJaMzBc" },
+  { id: 13, videoUrl: "https://www.youtube.com/embed/GbPVtbk8vcY" },
+  { id: 14, videoUrl: "https://www.youtube.com/embed/qpNjoSsnuBU" },
+
+
 
 
 ];
 
 const Showreel = () => {
-  const videoRefs = useRef([]);
+  const iframeRefs = useRef([]);
   const navigate = useNavigate();
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
@@ -70,7 +52,6 @@ const Showreel = () => {
     if (prevRef.current && nextRef.current) {
       swiper.params.navigation.prevEl = prevRef.current;
       swiper.params.navigation.nextEl = nextRef.current;
-
       if (swiper.navigation) {
         try {
           swiper.navigation.destroy();
@@ -80,6 +61,16 @@ const Showreel = () => {
       swiper.navigation.update();
     }
   }, []);
+
+  // ✅ Control YouTube video via postMessage API
+  const controlVideo = (iframe, command) => {
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: command, args: [] }),
+        "*"
+      );
+    }
+  };
 
   return (
     <>
@@ -93,17 +84,17 @@ const Showreel = () => {
             </h3>
             <p className="agency-text">
               We create <strong>visually stunning, scroll-stopping reels</strong> that elevate your brand presence.
-              From smooth animations to high-quality edits, our reels are designed to <strong>engage, convert, and impress</strong>.
+              From smooth animations to high-quality edits, our reels are designed to{" "}
+              <strong>engage, convert, and impress</strong>.
             </p>
             <ul className="agency-list">
-              <li> High-Quality Video Production</li>
-              <li> Trend-Focused & Brand-Aligned</li>
-              <li> Optimized for Engagement</li>
+              <li>High-Quality Video Production</li>
+              <li>Trend-Focused & Brand-Aligned</li>
+              <li>Optimized for Engagement</li>
             </ul>
             <div className="d-flex justify-content-md-left">
               <button
                 className="btn-enquiry showreel-btn mt-3"
-
                 onClick={() => navigate("/showreels")}
               >
                 See All
@@ -114,7 +105,7 @@ const Showreel = () => {
           {/* Right Section */}
           <div className="col-12 col-lg-8" style={{ overflow: "visible" }}>
             <div className="showreel-swiper-wrapper">
-              {/* Custom buttons */}
+              {/* Navigation Buttons */}
               <button ref={prevRef} className="showreel-custom-swiper-button custom-prev">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
@@ -126,6 +117,7 @@ const Showreel = () => {
                 </svg>
               </button>
 
+              {/* Swiper */}
               <Swiper
                 onSwiper={(s) => (swiperRef.current = s)}
                 modules={[Autoplay, Pagination, Navigation]}
@@ -152,48 +144,35 @@ const Showreel = () => {
                         <div className="speaker"></div>
                       </div>
 
-                      <video
-                        ref={(el) => (videoRefs.current[index] = el)}
+                      {/* ✅ YouTube Embed behaving like <video> */}
+                      <iframe
+                        ref={(el) => (iframeRefs.current[index] = el)}
                         className="reel-video"
-                        muted
+                        src={`${reel.videoUrl}?enablejsapi=1&autoplay=0&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&iv_load_policy=3&fs=0&disablekb=1&playsinline=1&playlist=${reel.videoUrl.split("/embed/")[1]}`}
+                        title={`YouTube video ${reel.id}`}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
                         onMouseEnter={() => {
-                          const video = videoRefs.current[index];
-                          if (video) {
-                            video.muted = false; // Unmute on hover
-                            video.play();
-                          }
-                          // Stop Swiper autoplay
-                          if (swiperRef.current && swiperRef.current.autoplay) {
-                            swiperRef.current.autoplay.stop();
-                          }
+                          const iframe = iframeRefs.current[index];
+                          controlVideo(iframe, "unMute"); // 🔊 Unmute on hover
+                          controlVideo(iframe, "playVideo"); // ▶️ Play
+                          if (swiperRef.current?.autoplay) swiperRef.current.autoplay.stop();
                         }}
                         onMouseLeave={() => {
-                          const video = videoRefs.current[index];
-                          if (video) {
-                            video.muted = true; // Mute again
-                            video.pause();
-                            video.currentTime = 0;
-                          }
-                          // Resume Swiper autoplay
-                          if (swiperRef.current && swiperRef.current.autoplay) {
-                            swiperRef.current.autoplay.start();
-                          }
+                          const iframe = iframeRefs.current[index];
+                          controlVideo(iframe, "pauseVideo");
+                          controlVideo(iframe, "mute"); // 🔇 Mute again
+                          if (swiperRef.current?.autoplay) swiperRef.current.autoplay.start();
                         }}
-                      >
-                        <source src={reel.videoUrl} type="video/mp4" />
-                      </video>
+                      ></iframe>
+
 
 
                       <div className="action-buttons">
                         <div className="icon-btn"><FaHeart /></div>
                         <div className="icon-btn"><FaRegComment /></div>
                         <div className="icon-btn"><FaShare /></div>
-                      </div>
-
-                      <div className="reel-info">
-                        <p className="username">{reel.username}</p>
-                        <p className="caption">{reel.caption}</p>
-                        <p className="music">{reel.music}</p>
                       </div>
 
                       <div className="bottom-nav">

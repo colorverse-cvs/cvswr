@@ -3,10 +3,10 @@ import React, { useRef, useState } from "react";
 import { reels } from "../../components/Showreel/Showreel";
 import "../../components/Showreel/Showreel.css";
 import "./Showreels.css";
-// import VideoShowcase from "../../components/VideoShowcase/VideoShowcase";
+import VideoShowcase from "../../components/VideoShowcase/VideoShowcase";
 import ProjectStart from "../../components/ProjectStart/ProjectStart";
 import AiGenerated from "../../components/AiGenerated/AiGenerated";
-import EnquiryForm from "../../components/EnquiryForm/EnquiryForm"; 
+import EnquiryForm from "../../components/EnquiryForm/EnquiryForm";
 
 import {
   FaHeart,
@@ -32,7 +32,7 @@ const Showreels = () => {
   const videoRefs = useRef([]);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-const swiperRef = useRef(null);
+  const swiperRef = useRef(null);
 
 
   // ✅ State for Enquiry Form
@@ -76,7 +76,7 @@ const swiperRef = useRef(null);
           </div>
 
           <Swiper
-           onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
@@ -98,67 +98,67 @@ const swiperRef = useRef(null);
             }}
           >
             {reels.map((reel, index) => (
-<SwiperSlide key={reel.id}>
-  <div className="phone-frame">
-    <div className="phone-notch">
-      <div className="camera-dot"></div>
-      <div className="speaker"></div>
-    </div>
+              <SwiperSlide key={reel.id}>
+                <div className="phone-frame">
+                  <div className="phone-notch">
+                    <div className="camera-dot"></div>
+                    <div className="speaker"></div>
+                  </div>
 
-    {/* YouTube embed with sound */}
-    <iframe
-      ref={(el) => (videoRefs.current[index] = el)}
-      className="reel-video"
-      src={`${reel.videoUrl}?enablejsapi=1&autoplay=0&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1&playsinline=1&loop=1&playlist=${reel.videoUrl.split("/embed/")[1]}`}
-      title={`YouTube video ${reel.id}`}
-      frameBorder="0"
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-      onMouseEnter={() => {
-        const iframe = videoRefs.current[index];
-        if (iframe && iframe.contentWindow) {
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: "unMute", args: [] }),
-            "*"
-          );
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: "playVideo", args: [] }),
-            "*"
-          );
-        }
-        if (swiperRef.current?.autoplay) swiperRef.current.autoplay.stop();
-      }}
-      onMouseLeave={() => {
-        const iframe = videoRefs.current[index];
-        if (iframe && iframe.contentWindow) {
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
-            "*"
-          );
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: "mute", args: [] }),
-            "*"
-          );
-        }
-        if (swiperRef.current?.autoplay) swiperRef.current.autoplay.start();
-      }}
-    ></iframe>
+                  {/* YouTube embed with sound */}
+                  <iframe
+                    ref={(el) => (videoRefs.current[index] = el)}
+                    className="reel-video"
+                    src={`${reel.videoUrl}?enablejsapi=1&autoplay=0&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1&playsinline=1&loop=1&playlist=${reel.videoUrl.split("/embed/")[1]}`}
+                    title={`YouTube video ${reel.id}`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    onMouseEnter={() => {
+                      const iframe = videoRefs.current[index];
+                      if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage(
+                          JSON.stringify({ event: "command", func: "unMute", args: [] }),
+                          "*"
+                        );
+                        iframe.contentWindow.postMessage(
+                          JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+                          "*"
+                        );
+                      }
+                      if (swiperRef.current?.autoplay) swiperRef.current.autoplay.stop();
+                    }}
+                    onMouseLeave={() => {
+                      const iframe = videoRefs.current[index];
+                      if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage(
+                          JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+                          "*"
+                        );
+                        iframe.contentWindow.postMessage(
+                          JSON.stringify({ event: "command", func: "mute", args: [] }),
+                          "*"
+                        );
+                      }
+                      if (swiperRef.current?.autoplay) swiperRef.current.autoplay.start();
+                    }}
+                  ></iframe>
 
-    <div className="action-buttons">
-      <div className="icon-btn"><FaHeart /></div>
-      <div className="icon-btn"><FaRegComment /></div>
-      <div className="icon-btn"><FaShare /></div>
-    </div>
+                  <div className="action-buttons">
+                    <div className="icon-btn"><FaHeart /></div>
+                    <div className="icon-btn"><FaRegComment /></div>
+                    <div className="icon-btn"><FaShare /></div>
+                  </div>
 
-    <div className="bottom-nav">
-      <FaHome />
-      <FaSearch />
-      <FaPlusSquare />
-      <FaVideo className="active" />
-      <FaUser />
-    </div>
-  </div>
-</SwiperSlide>
+                  <div className="bottom-nav">
+                    <FaHome />
+                    <FaSearch />
+                    <FaPlusSquare />
+                    <FaVideo className="active" />
+                    <FaUser />
+                  </div>
+                </div>
+              </SwiperSlide>
 
             ))}
 
@@ -166,7 +166,7 @@ const swiperRef = useRef(null);
           </Swiper>
         </div>
       </div>
-{/* 
+      
       <section>
         <div>
           <div className="section-heading1">
@@ -183,10 +183,10 @@ const swiperRef = useRef(null);
 
           <VideoShowcase showHeader={false} showButton={false} />
         </div>
-      </section> */}
+      </section> 
 
       <section>
-        <AiGenerated/>
+        <AiGenerated />
       </section>
 
       {/* ✅ Perfect Control Section */}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,52 +7,107 @@ import "./VideoShowcase.css";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
-// ✅ Import local video files
-import bigVideo1 from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
-import bigVideo2 from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
-import topRightVideo from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
-import bottomLeftVideo from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
-import bottomRightVideo from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
+import topRightVideo from "../../assets/AIREELS/ai-video-img.jpg";
+import bottomLeft from "../../assets/AIREELS/ai-video-img2.jpg";
+import bottomRight from "../../assets/AIREELS/ai-video-img3.png";
 
 const bigVideos = [
   {
-    src: bigVideo1,
+    videoUrl: "https://www.youtube.com/embed/gON6bYE-rVo?enablejsapi=1",
     title: "Sketchable Plus",
-    description: "Streamlined controls & workflow",
   },
   {
-    src: bigVideo2,
+    videoUrl: "https://www.youtube.com/embed/nwdgGc0LpiY?enablejsapi=1",
     title: "Sketchable Pro",
-    description: "More brushes & layers",
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/TWITjuKKGP0?enablejsapi=1",
+    title: "Sketchable Pro",
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/4dlv2fSz81M?enablejsapi=1",
+    title: "Sketchable Pro",
   },
 ];
-
-const rightVideos = {
-  topRight: {
-    src: topRightVideo,
-    title: "Microsoft 365",
-  },
-  bottomLeft: {
-    src: bottomLeftVideo,
-    text: "Futurama - New season",
-  },
-  bottomRight: {
-    src: bottomRightVideo,
-    text: "You can now view Snaps on your computer",
-  },
-};
 
 const VideoShowcase = ({ showHeader = true, showButton = true }) => {
   const navigate = useNavigate();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const swiperRef = useRef(null);
+  const iframeRefs = useRef([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
+
+  // Detect if section is visible in viewport
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsVisible(entries[0].isIntersecting);
+      },
+      { threshold: 0.4 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Detect any user interaction (to unmute)
+  useEffect(() => {
+    const handleInteraction = () => setUserInteracted(true);
+    window.addEventListener("click", handleInteraction);
+    window.addEventListener("scroll", handleInteraction);
+    return () => {
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("scroll", handleInteraction);
+    };
+  }, []);
+
+  // 🎬 Control YouTube videos programmatically
+  useEffect(() => {
+    iframeRefs.current.forEach((iframe, i) => {
+      if (!iframe || !iframe.contentWindow) return;
+
+      if (isVisible && i === currentIndex) {
+        // ✅ Auto play current visible video
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "playVideo",
+            args: [],
+          }),
+          "*"
+        );
+
+        // ✅ Mute until user interacts
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: userInteracted ? "unMute" : "mute",
+            args: [],
+          }),
+          "*"
+        );
+      } else {
+        // ⏸️ Pause all other videos
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "pauseVideo",
+            args: [],
+          }),
+          "*"
+        );
+      }
+    });
+  }, [isVisible, currentIndex, userInteracted]);
 
   return (
-    <div className="video-showcase container">
-      {/* Header */}
+    <div ref={sectionRef} className="video-showcase container">
       {showHeader && (
         <div className="text-center fade-in">
-          <h2 className="fw-bold section-heading pt-5 pb-md-4 gradient-text">
+          <h2 className="fw-bold section-heading  pt-5 pb-md-4 gradient-text">
             AI Generated Video
           </h2>
         </div>
@@ -60,14 +115,32 @@ const VideoShowcase = ({ showHeader = true, showButton = true }) => {
 
       <div className="row g-4 align-items-start mt-1">
         {/* Left Big Video Carousel */}
-        <div className="col-lg-7">
-          <div ref={prevRef} className="video-showcase-custom-button video-showcase-custom-prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+        <div className="col-lg-7 position-relative">
+          <div
+            ref={prevRef}
+            className="video-showcase-custom-button video-showcase-custom-prev"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
               <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
             </svg>
           </div>
-          <div ref={nextRef} className="video-showcase-custom-button video-showcase-custom-next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+          <div
+            ref={nextRef}
+            className="video-showcase-custom-button video-showcase-custom-next"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
               <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
             </svg>
           </div>
@@ -80,27 +153,30 @@ const VideoShowcase = ({ showHeader = true, showButton = true }) => {
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
+              swiperRef.current = swiper;
             }}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            autoplay={{ delay: 9000, disableOnInteraction: false }}
             loop={true}
+            onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
             className="big-swiper"
           >
             {bigVideos.map((video, i) => (
               <SwiperSlide key={i}>
-                <div className="banner-card big-card position-relative overflow-hidden">
-                  <video
-                    src={video.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                <div
+                  className="banner-card big-card position-relative overflow-hidden"
+                  onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+                  onMouseLeave={() => swiperRef.current?.autoplay.start()}
+                >
+                  <iframe
+                    ref={(el) => (iframeRefs.current[i] = el)}
                     className="rounded video-iframe w-100 h-100"
-                  />
-                  <div className="banner-overlay d-flex flex-column justify-content-end p-4">
-                    <h2 className="text-white mb-2">{video.title}</h2>
-                    <p className="text-white-50 mb-3">{video.description}</p>
-                  </div>
+                    src={video.videoUrl}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </SwiperSlide>
             ))}
@@ -110,55 +186,24 @@ const VideoShowcase = ({ showHeader = true, showButton = true }) => {
         {/* Right Small Videos */}
         <div className="col-lg-5 d-flex flex-column">
           <div className="banner-card small-card position-relative overflow-hidden">
-            <video
-              src={rightVideos.topRight.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="rounded video-iframe w-100 h-100"
-            />
-            <div className="banner-overlay p-3 d-flex flex-column justify-content-end">
-              <h5 className="text-white mb-2">{rightVideos.topRight.title}</h5>
-            </div>
+            <img className="aivideoimg" src={topRightVideo} alt="" />
           </div>
 
           <div className="row g-3 mt-3">
             <div className="col-md-6">
               <div className="banner-card small-card position-relative overflow-hidden">
-                <video
-                  src={rightVideos.bottomLeft.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="rounded video-iframe w-100 h-100"
-                />
-                <div className="banner-overlay p-2 d-flex align-items-end">
-                  <small className="text-white">{rightVideos.bottomLeft.text}</small>
-                </div>
+                <img className="aivideoimg" src={bottomLeft} alt="" />
               </div>
             </div>
             <div className="col-md-6">
               <div className="banner-card small-card position-relative overflow-hidden">
-                <video
-                  src={rightVideos.bottomRight.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="rounded video-iframe w-100 h-100"
-                />
-                <div className="banner-overlay p-2 d-flex align-items-end">
-                  <small className="text-white">{rightVideos.bottomRight.text}</small>
-                </div>
+                <img className="aivideoimg" src={bottomRight} alt="" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* View More Button */}
       {showButton && (
         <div className="text-center ai-video fade-in">
           <button

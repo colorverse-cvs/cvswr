@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { reels } from "../../components/Showreel/Showreel";
 import "../../components/Showreel/Showreel.css";
 import "./Showreels.css";
-import VideoShowcase from "../../components/VideoShowcase/VideoShowcase";
+// import VideoShowcase from "../../components/VideoShowcase/VideoShowcase";
 import ProjectStart from "../../components/ProjectStart/ProjectStart";
 import AiGenerated from "../../components/AiGenerated/AiGenerated";
 import EnquiryForm from "../../components/EnquiryForm/EnquiryForm";
@@ -167,7 +167,7 @@ const Showreels = () => {
         </div>
       </div>
       
-      <section>
+      {/* <section>
         <div>
           <div className="section-heading1">
             <h2 className="page-title">
@@ -183,7 +183,7 @@ const Showreels = () => {
 
           <VideoShowcase showHeader={false} showButton={false} />
         </div>
-      </section> 
+      </section>  */}
 
       <section>
         <AiGenerated />

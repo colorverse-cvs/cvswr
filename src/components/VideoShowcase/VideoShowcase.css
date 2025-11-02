@@ -18,6 +18,12 @@
   height: 180px;
 }
 
+.aivideoimg{
+  width: 100%;
+  width: 100%;
+  margin-top: -15px;
+}
+
 .video-iframe {
   width: 100%;
   height: 100%;

@@ -174,5 +174,8 @@
     width: -webkit-fill-available;
     padding: 5px;
     border-radius: 50px;
+    max-width: 450px;
+    max-height: 450px;
+
 }
 }

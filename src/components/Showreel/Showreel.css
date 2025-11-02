@@ -252,6 +252,10 @@
   scroll-behavior: smooth;    /* smooth scrolling */
 }
 
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-horizontal.swiper-pagination-bullets {
+position: sticky;
+margin-bottom: 0px;
+}
 
 
 /* ✅ Responsive Fixes */

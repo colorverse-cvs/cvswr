@@ -102,7 +102,7 @@ useEffect(() => {
       <div className="ai-generated-container">
         <div className="section-heading1">
           <h2 className="page-title">
-            Ai Generated <span> Video</span>
+            Ai Generated <span> Reels</span>
           </h2>
           <p>
             Dive into our full collection of reels that <span>inspire</span>,{" "}

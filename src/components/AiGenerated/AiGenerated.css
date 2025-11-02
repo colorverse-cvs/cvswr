@@ -196,4 +196,7 @@
     clip-path: polygon(0 0, 100% 0, 0 100%);
     z-index: 5;
 }
+ .ai-generated-container{
+  margin-top: 30px;
+ }
 }

@@ -98,6 +98,21 @@
   gap: 14px;
   z-index: 2;
 }
+.youtube-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.youtube-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* prevents accidental click on YouTube UI */
+}
+
 
 .icon-btn {
   background: rgba(0, 0, 0, 0.5);

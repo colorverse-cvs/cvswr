@@ -6,7 +6,7 @@ import "./Showreels.css";
 // import VideoShowcase from "../../components/VideoShowcase/VideoShowcase";
 import ProjectStart from "../../components/ProjectStart/ProjectStart";
 import AiGenerated from "../../components/AiGenerated/AiGenerated";
-import EnquiryForm from "../../components/EnquiryForm/EnquiryForm"; // ✅ Import EnquiryForm
+import EnquiryForm from "../../components/EnquiryForm/EnquiryForm"; 
 
 import {
   FaHeart,
@@ -98,65 +98,68 @@ const swiperRef = useRef(null);
             }}
           >
             {reels.map((reel, index) => (
-              <SwiperSlide key={reel.id}>
-                <div className="phone-frame">
-                  <div className="phone-notch">
-                    <div className="camera-dot"></div>
-                    <div className="speaker"></div>
-                  </div>
+<SwiperSlide key={reel.id}>
+  <div className="phone-frame">
+    <div className="phone-notch">
+      <div className="camera-dot"></div>
+      <div className="speaker"></div>
+    </div>
 
+    {/* YouTube embed with sound */}
+    <iframe
+      ref={(el) => (videoRefs.current[index] = el)}
+      className="reel-video"
+      src={`${reel.videoUrl}?enablejsapi=1&autoplay=0&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1&playsinline=1&loop=1&playlist=${reel.videoUrl.split("/embed/")[1]}`}
+      title={`YouTube video ${reel.id}`}
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+      onMouseEnter={() => {
+        const iframe = videoRefs.current[index];
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: "unMute", args: [] }),
+            "*"
+          );
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+            "*"
+          );
+        }
+        if (swiperRef.current?.autoplay) swiperRef.current.autoplay.stop();
+      }}
+      onMouseLeave={() => {
+        const iframe = videoRefs.current[index];
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+            "*"
+          );
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: "mute", args: [] }),
+            "*"
+          );
+        }
+        if (swiperRef.current?.autoplay) swiperRef.current.autoplay.start();
+      }}
+    ></iframe>
 
-<video
-  ref={(el) => (videoRefs.current[index] = el)}
-  className="reel-video"
-  muted
-  onMouseEnter={() => {
-    const video = videoRefs.current[index];
-    if (video) {
-      video.muted = false;
-      video.play();
-    }
-    if (swiperRef.current?.autoplay) {
-      swiperRef.current.autoplay.stop();
-    }
-  }}
-  onMouseLeave={() => {
-    const video = videoRefs.current[index];
-    if (video) {
-      video.muted = true;
-      video.pause();
-      video.currentTime = 0;
-    }
-    if (swiperRef.current?.autoplay) {
-      swiperRef.current.autoplay.start();
-    }
-  }}
->
-  <source src={reel.videoUrl} type="video/mp4" />
-</video>
+    <div className="action-buttons">
+      <div className="icon-btn"><FaHeart /></div>
+      <div className="icon-btn"><FaRegComment /></div>
+      <div className="icon-btn"><FaShare /></div>
+    </div>
 
+    <div className="bottom-nav">
+      <FaHome />
+      <FaSearch />
+      <FaPlusSquare />
+      <FaVideo className="active" />
+      <FaUser />
+    </div>
+  </div>
+</SwiperSlide>
 
-                  <div className="action-buttons">
-                    <div className="icon-btn"><FaHeart /></div>
-                    <div className="icon-btn"><FaRegComment /></div>
-                    <div className="icon-btn"><FaShare /></div>
-                  </div>
-
-                  <div className="reel-info">
-                    <p className="username">{reel.username}</p>
-                    <p className="caption">{reel.caption}</p>
-                    <p className="music">🎵 {reel.music}</p>
-                  </div>
-
-                  <div className="bottom-nav">
-                    <FaHome />
-                    <FaSearch />
-                    <FaPlusSquare />
-                    <FaVideo className="active" />
-                    <FaUser />
-                  </div>
-                </div>
-              </SwiperSlide>
             ))}
 
             <div className="swiper-pagination"></div>

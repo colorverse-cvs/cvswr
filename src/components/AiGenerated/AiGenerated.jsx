@@ -1,22 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./AiGenerated.css";
 
-// ✅ Import local videos
-import reel1 from "../../assets/AIREELS/Lucifer-Perfume -Ai.mp4";
-import reel2 from "../../assets/AIREELS/Balaji-Ganpati Festival-Ai.mp4";
-import reel3 from "../../assets/AIREELS/Lucifer-Car-Ai.mp4";
-import reel4 from "../../assets/AIREELS/Asf-Barbeque-Ai.mp4";
-import reel5 from "../../assets/AIREELS/S&K-Ganpati-Festival-Ai.mp4";
-import reel6 from "../../assets/AIREELS/Mahindra-Car-Ai.mp4";
-
-const videos = [reel1, reel2, reel3, reel4, reel5, reel6];
+// ✅ YouTube embed video list
+const videos = [
+  { id: 1, videoUrl: "https://www.youtube.com/embed/XuGAH05sMNE" },
+  { id: 2, videoUrl: "https://www.youtube.com/embed/scSsnjiYgEA" },
+  { id: 3, videoUrl: "https://www.youtube.com/embed/BuwlkOYCcNw" },
+  { id: 4, videoUrl: "https://www.youtube.com/embed/F_C7010-ySw" },
+  { id: 5, videoUrl: "https://www.youtube.com/embed/y2LceMYkz74" },
+  { id: 6, videoUrl: "https://www.youtube.com/embed/h6s72B0YlKU" },
+  { id: 7, videoUrl: "https://www.youtube.com/embed/YGt0tAVy8Yk" },
+  { id: 8, videoUrl: "https://www.youtube.com/embed/jArmUhChPT4" },
+  { id: 9, videoUrl: "https://www.youtube.com/embed/-CxcHXrA3Ww" },
+  { id: 10, videoUrl: "https://www.youtube.com/embed/Rk6RW6iJVF4" },
+  { id: 11, videoUrl: "https://www.youtube.com/embed/sUO0z6mN2V4" },
+];
 
 const AiGenerated = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
   const total = videos.length;
-  const videoRefs = useRef([]);
+  const iframeRefs = useRef([]);
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -51,19 +56,46 @@ const AiGenerated = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔹 Play/pause based on visibility & currentIndex
-  useEffect(() => {
-    videoRefs.current.forEach((vid, i) => {
-      if (!vid) return;
-      if (isVisible && i === currentIndex) {
-        vid.currentTime = 0;
-        vid.play().catch(() => {});
-        vid.muted = !userInteracted;
-      } else {
-        vid.pause();
-      }
-    });
-  }, [isVisible, currentIndex, userInteracted]);
+  // 🔹 Play/pause YouTube videos based on visibility & currentIndex
+// 🔹 Play/pause YouTube videos based on visibility & currentIndex
+useEffect(() => {
+  iframeRefs.current.forEach((iframe, i) => {
+    if (!iframe || !iframe.contentWindow) return;
+
+    if (isVisible && i === currentIndex) {
+      // ✅ Auto play when section becomes visible
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "playVideo",
+          args: [],
+        }),
+        "*"
+      );
+
+      // ✅ Mute until user interacts (unmutes after click/scroll)
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: userInteracted ? "unMute" : "mute",
+          args: [],
+        }),
+        "*"
+      );
+    } else {
+      // ⏸️ Pause all other videos
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "pauseVideo",
+          args: [],
+        }),
+        "*"
+      );
+    }
+  });
+}, [isVisible, currentIndex, userInteracted]);
+
 
   return (
     <div className="ai-generated-container-v" ref={sectionRef}>
@@ -98,18 +130,21 @@ const AiGenerated = () => {
               else if (offset === total - 1) className = "cardai left-1";
               else if (offset === total - 2) className = "cardai left-2";
 
+              const videoSrc = `${video.videoUrl}?enablejsapi=1&autoplay=0&mute=${userInteracted ? 0 : 1
+                }&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&playsinline=1&loop=1&playlist=${video.videoUrl.split("/embed/")[1]
+                }`;
+
               return (
                 <div key={i} className={className} onClick={() => updateIndex(i)}>
-                  <video
-                    ref={(el) => (videoRefs.current[i] = el)}
-                    src={video}
-                    controls
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
+                  <iframe
+                    ref={(el) => (iframeRefs.current[i] = el)}
                     className="swiper-video"
-                  />
+                    src={videoSrc}
+                    title={`AI Generated Video ${i + 1}`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               );
             })}

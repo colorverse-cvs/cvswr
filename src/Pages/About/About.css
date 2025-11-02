@@ -24,9 +24,9 @@
 /* Image hover effect */
 .about-image {
   max-width: 100%;      /* ensures responsive */
-  width: 100%;          /* take full width of column */
+  width: 420px;          /* take full width of column */
   height: auto;         /* maintain aspect ratio */
-  border-radius: 1rem;  /* rounded corners */
+  border-radius: 3rem;  /* rounded corners */
   /* box-shadow: 0 1rem 2rem rgba(0,0,0,0.3); */
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
@@ -36,17 +36,16 @@
   /* box-shadow: 0 1rem 2rem rgba(0,0,0,0.3); */
 }
 
-/* Badge styling */
 .years-badge {
-  bottom: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #6f00ff, #c700ff);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 50px;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
-  font-size: 0.9rem;
+    bottom: -0.9rem;
+    right: -7rem; 
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #6f00ff, #c700ff);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    font-size: 0.9rem;
 }
 
 /* Background shapes */
@@ -166,6 +165,48 @@
     font-weight: 600;
 }
 
+.founder-info {
+  text-align: center;
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, rgba(17, 0, 105, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(17, 0, 105, 0.2);
+  border-radius: 20px;
+  padding: 15px 25px;
+  display: inline-block;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(17, 0, 105, 0.15);
+}
+
+.founder-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(17, 0, 105, 0.3);
+  background: linear-gradient(135deg, rgba(17, 0, 105, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+.founder-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #8e00ff;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.founder-title {
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+  letter-spacing: 0.3px;
+      line-height: 20px;
+}
+.founder-title1{
+      font-size: 14px;
+    line-height: 0px;
+  color: #555;
+
+}
+
+
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .values-section .grid-container {
     display: flex;
@@ -186,4 +227,21 @@
   .gradient-line {
         width: 40px;
   }
+
 }
+@media (max-width: 768px) {
+.years-badge {
+    bottom: -3.9rem;
+    right: 3rem;
+    font-size: 11px;
+}
+.founder-title1{
+  line-height: 20px;
+}
+.founder-info {
+    margin-top: 2.5rem;
+
+}
+
+}
+

@@ -1,11 +1,12 @@
 import React from "react";
 import "./About.css";
 import { FaHeart, FaGem, FaSmile, FaStar } from "react-icons/fa";
-import aboutImage1 from "../../assets/our-story.WEBP";
+import aboutImage1 from "../../assets/as.jpg";
 import Akash from "../../assets/ceo.jpg";
 import Shubham from "../../assets/Shubham.jpg";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs"
 import ProjectStart from "../../components/ProjectStart/ProjectStart"
+import WorkEx from "../../components/WorkEx/WorkEx";
 
 
 /* ----------------------------- Data ----------------------------- */
@@ -35,7 +36,9 @@ const values = [
 const AboutPage = () => (
   <div className="about-page">
     <StorySection />
+    <WorkEx />
     <ValuesSection />
+    
     {/* <TeamSection /> */}
     <WhyChooseUs />
     <MissionSection />
@@ -54,39 +57,63 @@ export const StorySection = () => (
     <div className="bg-shape bg-shape-top"></div>
     <div className="bg-shape bg-shape-bottom"></div>
 
-    <div className="container">
-      <div className="row align-items-center g-5">
-        <div className="col-md-6">
-          <h2 className="section-heading gradient-text mb-4">Our Story</h2>
-          
-          <p className="story-text">Founded in 2020 by Akash Kailas Shinde, <span  className="brand">Colorverse</span> Studio was born from a vision to turn creativity into impact. What began as a dream has grown into a powerhouse of design, storytelling, and digital innovation.
-            <br />
-            With Akash’s experience as a VFX artist on major Bollywood films like Salaar, KGF, Chhava, Yudhra, Maidaan, and many more, Colorverse brings cinematic excellence and artistic precision into every project.
-            <br />
-            Today, Colorverse Studio is a one-stop creative universe — offering expert services in website designing, video editing, graphic design, branding, and digital marketing, helping brands shine across every platform.
-<br />
-Through Colorverse Academy, we’re nurturing the next generation of creators with hands-on training in Photoshop, Illustrator, Video Editing, and VFX, empowering talent to craft their own creative galaxies.
-          </p>
-          <p className="story-text">
-           At Colorverse Studio, creativity isn’t just what we do — it’s the universe we live in
-          </p>
-        </div>
+   <div className="container">
+  <div className="row align-items-center g-5">
+    <div className="col-md-6">
+      <h2 className="section-heading gradient-text mb-4">Our Story</h2>
 
-       <div className="col-md-6 text-center position-relative">
-  <div className="image-container position-relative d-inline-block">
-    <img
-      src={aboutImage1}
-      alt="Our Story"
-      className="about-image img-fluid rounded shadow-lg"
-    />
-    <span className="years-badge position-absolute">7+ Years of spreading joy</span>
+      <p className="story-text">
+        Founded in 2020 by Akash Kailas Shinde,{" "}
+        <span className="brand">Colorverse</span> Studio was born from a vision
+        to turn creativity into impact. What began as a dream has grown into a
+        powerhouse of design, storytelling, and digital innovation.
+        <br />
+        With Akash’s experience as a VFX artist on major Bollywood films like
+        Salaar, KGF, Chhava, Yudhra, Maidaan, and many more, Colorverse brings
+        cinematic excellence and artistic precision into every project.
+        <br />
+        Today, Colorverse Studio is a one-stop creative universe — offering
+        expert services in website designing, video editing, graphic design,
+        branding, and digital marketing, helping brands shine across every
+        platform.
+        <br />
+        Through Colorverse Academy, we’re nurturing the next generation of
+        creators with hands-on training in Photoshop, Illustrator, Video
+        Editing, and VFX, empowering talent to craft their own creative
+        galaxies.
+      </p>
+      <p className="story-text">
+        At Colorverse Studio, creativity isn’t just what we do — it’s the
+        universe we live in
+      </p>
+    </div>
+
+    <div className="col-md-6 text-center position-relative">
+      <div className="image-container position-relative d-inline-block">
+        <img
+          src={aboutImage1}
+          alt="Our Story"
+          className="about-image img-fluid shadow-lg"
+        />
+        <span className="years-badge position-absolute">
+          7+ Years Experience In Media<br />And Entertainment Industry
+        </span>
+      </div>
+
+      {/* 👇 Added Founder Section */}
+      <div className="founder-info">
+        <h4 className="founder-name">Akash Kailas Shinde</h4>
+        <p className="founder-title">Founder & CEO, Colorverse Studio</p>
+        <p className="founder-title1">VFX Lighting and LookDev  Artist In Bollywood Movies</p>
+      </div>
+    </div>
   </div>
 </div>
 
-      </div>
-    </div>
   </section>
 );
+
+
 
 export const ValuesSection = () => (
   <section className="values-section py-5">

@@ -1,0 +1,126 @@
+.workex-wrapper {
+  width: 100%;
+  padding: 40px 0px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.section-heading1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.page-title span {
+  color: #111;
+  -webkit-text-fill-color: initial;
+}
+
+.section-heading1 p {
+  font-size: 1rem;
+  color: #444;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section-heading1 p span {
+  color: #2575fc;
+  font-weight: 600;
+}
+
+.heading-underline {
+  width: 90px;
+  height: 4px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border-radius: 5px;
+  animation: underlineSlide 2s infinite alternate;
+}
+
+@keyframes underlineSlide {
+  from {
+    width: 60px;
+  }
+  to {
+    width: 120px;
+  }
+}
+
+/* Swiper Container */
+.workex-slider {
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+}
+
+/* Individual Slides */
+.workex-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.workex-item:hover {
+  transform: scale(1.05);
+}
+
+.workex-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1.2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.workex-title {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Navigation Button Container (Top Right) */
+.workex-navigation {
+  position: absolute;
+  top: -15px;
+  right: 0px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* Common Button Styling */
+.workex-button-next,
+.workex-button-prev {
+    background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+  color: white;
+  font-size: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.workex-button-next:hover,
+.workex-button-prev:hover {
+  transform: scale(1.1);
+    background-image: linear-gradient(135deg, #4e0280cc, #900076d5);
+}

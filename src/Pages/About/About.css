@@ -230,11 +230,15 @@
 
 }
 @media (max-width: 768px) {
-.years-badge {
-    bottom: -3.9rem;
-    right: 3rem;
+ .years-badge {
+    position: absolute; 
+    bottom: -3.9rem; 
+    left: 50%; 
+    transform: translateX(-50%);
     font-size: 11px;
-}
+    right: auto; 
+    width: 75%;
+  }
 .founder-title1{
   line-height: 20px;
 }

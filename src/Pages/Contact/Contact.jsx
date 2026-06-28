@@ -15,7 +15,10 @@ const Contact = () => {
     formData.append("from_name", formData.get("fullName"));
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const WEB3_URL =
+        "https://" + "api.web3forms.com" + "/submit";
+
+      const response = await fetch(WEB3_URL, {
         method: "POST",
         body: formData,
       });
@@ -41,22 +44,21 @@ const Contact = () => {
     <div className="contact-section">
       <div className="container py-5">
         {/* Heading */}
-        
+
 
         {/* Form & Map */}
         <div className="row align-items-center form-map-wrapper">
-          
+
           {/* Form Column */}
           <div className="col-lg-6 mb-4">
             <div className="heading ms-5">
-          <h1>
-            Get in <span className="red">Touch</span>
-          </h1>
-          <p className="subtext">
-            Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo
-            molestie vel, ornare non id blandit netus.
-          </p>
-        </div>
+              <h1>
+                Get in <span className="red">Touch</span>
+              </h1>
+              <p className="subtext">
+                Let's discuss your ideas and create something extraordinary together. We're just one message away.
+              </p>
+            </div>
             <form className="form-box" onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label>Full Name</label>
@@ -131,7 +133,7 @@ const Contact = () => {
           {/* Map Column */}
           <div className="col-lg-6 position-relative map-container">
             <div className="map-wrapper">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8304287760716!2d72.85875187520635!3d19.115093582097547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9ce246611f1%3A0x3e0b82a825ccce33!2sKanakia%20Wall%20Street!5e0!3m2!1sen!2sin!4v1760381633664!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8304287760716!2d72.85875187520635!3d19.115093582097547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9ce246611f1%3A0x3e0b82a825ccce33!2sKanakia%20Wall%20Street!5e0!3m2!1sen!2sin!4v1760381633664!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

@@ -71,6 +71,7 @@ const Contact = () => {
                 />
               </div>
 
+
               <div className="mb-3">
                 <label>Email</label>
                 <input
